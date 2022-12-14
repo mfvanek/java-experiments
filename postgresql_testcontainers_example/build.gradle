@@ -19,7 +19,7 @@ test {
     useJUnitPlatform()
 }
 
-def junitVersion = '5.9.0'
+def junitVersion = '5.9.1'
 dependencies {
     implementation 'org.postgresql:postgresql:42.4.1'
     implementation 'com.zaxxer:HikariCP:5.0.1'
@@ -27,5 +27,5 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 
-    testImplementation 'org.testcontainers:postgresql:1.17.3'
+    testImplementation 'org.testcontainers:postgresql:1.17.6'
 }
