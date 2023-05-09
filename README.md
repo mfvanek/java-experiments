@@ -1,2 +1,4 @@
 # java-experiments
-Experiments with Java
+Gradle multi-module project for experiments with Java
+
+[![Java CI](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml/badge.svg)](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml)
