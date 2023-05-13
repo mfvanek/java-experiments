@@ -1,15 +1,20 @@
 package io.github.mfvanek.computer.science;
 
+import static io.github.mfvanek.computer.science.JaTest3.getFileFromResource;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class JaTest6 {
 
     private static int counter = 0;
 
     public static void main(String[] args) {
-        try (BufferedReader input = new BufferedReader(new FileReader("input.txt"));
+        try (BufferedReader input = new BufferedReader(new FileReader(getFileFromResource("input.txt")));
              PrintWriter output = new PrintWriter(new FileWriter("output.txt"))) {
             counter = 0;
             int k = Integer.parseInt(input.readLine(), 10);
@@ -39,6 +44,7 @@ public class JaTest6 {
                 toOutput(output, files.peekFirst());
             }
         } catch (Exception e) {
+            log.error(e.getMessage(), e);
         }
     }
 
