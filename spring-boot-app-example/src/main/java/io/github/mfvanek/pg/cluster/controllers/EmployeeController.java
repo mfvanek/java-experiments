@@ -3,11 +3,6 @@ package io.github.mfvanek.pg.cluster.controllers;
 import io.github.mfvanek.pg.cluster.dtos.EmployeeCreationRequest;
 import io.github.mfvanek.pg.cluster.dtos.EmployeeDto;
 import io.github.mfvanek.pg.cluster.services.EmployeeService;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/v1/employee")

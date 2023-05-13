@@ -1,13 +1,12 @@
 package io.github.mfvanek.pg.cluster.controllers;
 
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
-
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @RestController
 @RequestMapping("/v1/cluster")

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class ForLecture {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
 
         List<String> lst = new ArrayList<>(Arrays.asList("1s", "2s", "3s"));

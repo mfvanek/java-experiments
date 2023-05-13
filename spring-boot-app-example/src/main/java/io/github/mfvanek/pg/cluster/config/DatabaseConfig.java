@@ -1,13 +1,7 @@
 package io.github.mfvanek.pg.cluster.config;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
-
 import io.github.mfvanek.postgres.example.PgUrlParser;
-
-import java.util.Set;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +11,11 @@ import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
 
 import java.util.Map;
+import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.sql.DataSource;
+
+import static io.github.mfvanek.postgres.example.HikariDataSourceProvider.getDataSource;
 
 @Slf4j
 @Configuration(proxyBeanMethods = false)
@@ -44,10 +41,6 @@ public class DatabaseConfig {
             mps.addFirst(new MapPropertySource("connectionString",
                     Map.ofEntries(Map.entry("spring.datasource.url", pgUrl))));
         }
-        final HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(pgUrl);
-        hikariConfig.setUsername(clusterWrapper.getUsername());
-        hikariConfig.setPassword(clusterWrapper.getPassword());
-        return new HikariDataSource(hikariConfig);
+        return getDataSource(pgUrl, clusterWrapper.getUsername(), clusterWrapper.getPassword());
     }
 }

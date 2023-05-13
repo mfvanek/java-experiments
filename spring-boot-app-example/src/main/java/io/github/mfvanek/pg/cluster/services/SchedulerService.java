@@ -17,7 +17,7 @@ public class SchedulerService {
     private final EmployeeService employeeService;
     private final AtomicLong counter = new AtomicLong();
 
-    @Scheduled(fixedDelay = 500)
+    @Scheduled(fixedDelay = 100)
     public void scheduleStatisticsTask() {
         try {
             final int total = employeeService.getAll().size();
