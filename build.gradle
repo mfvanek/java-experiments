@@ -57,6 +57,10 @@ subprojects {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    test {
+        useJUnitPlatform()
+    }
+
 //    tasks.withType(JavaCompile).configureEach {
 //        options.errorprone {
 //            disableWarningsInGeneratedCode = true
