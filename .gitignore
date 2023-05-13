@@ -2,3 +2,5 @@
 *.iml
 *.ipr
 /.gradle/
+/spring-boot-app-example/build/
+/console-app-example/build/

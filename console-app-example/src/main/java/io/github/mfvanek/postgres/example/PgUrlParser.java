@@ -2,6 +2,7 @@ package io.github.mfvanek.postgres.example;
 
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -30,8 +31,9 @@ final class PgUrlParser {
 
     public static String buildCommonUrlToPrimary(final Set<String> pgUrls) {
         return URL_HEADER + pgUrls.stream()
-            .map(PgUrlParser::extractAllHostsWithPort)
-            .collect(Collectors.joining(",")) +
+                .map(PgUrlParser::extractAllHostsWithPort)
+                .sorted()
+                .collect(Collectors.joining(",")) +
                 extractDatabaseName(pgUrls) +
                 "?targetServerType=primary";
     }

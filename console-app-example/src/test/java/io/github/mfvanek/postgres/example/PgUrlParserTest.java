@@ -28,6 +28,6 @@ class PgUrlParserTest {
         assertThat(PgUrlParser.buildCommonUrlToPrimary(Set.of(
                 "jdbc:postgresql://host:5432/db?param=1",
                 "jdbc:postgresql://anotherHost:5433/db?param2=test")))
-                .isEqualTo("jdbc:postgresql://host:5432,anotherHost:5433/db?targetServerType=primary");
+                .isEqualTo("jdbc:postgresql://anotherHost:5433,host:5432/db?targetServerType=primary");
     }
 }

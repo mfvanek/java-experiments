@@ -5,6 +5,7 @@ plugins {
     id 'org.sonarqube' version '4.0.0.2929'
     id 'pmd'
     id 'net.ltgt.errorprone' version '3.1.0'
+    id 'io.freefair.lombok' version '8.0.1'
 }
 
 description = 'Experiments with Java'
@@ -27,6 +28,7 @@ subprojects {
     //apply plugin: 'com.github.spotbugs'
     apply plugin: 'jacoco'
     //apply plugin: 'net.ltgt.errorprone'
+    apply plugin: 'io.freefair.lombok'
 
     ext {
         jsr305Version = '3.0.2'
@@ -46,16 +48,15 @@ subprojects {
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
         testImplementation 'org.junit.jupiter:junit-jupiter-api'
 
-        checkstyle 'com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1'
-        errorprone 'com.google.errorprone:error_prone_core:2.18.0'
+        //checkstyle 'com.thomasjensen.checkstyle.addons:checkstyle-addons:7.0.1'
+        //errorprone 'com.google.errorprone:error_prone_core:2.18.0'
     }
 
     java {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-        withJavadocJar()
-        withSourcesJar()
     }
+
 //    tasks.withType(JavaCompile).configureEach {
 //        options.errorprone {
 //            disableWarningsInGeneratedCode = true
