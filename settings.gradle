@@ -1,0 +1,3 @@
+rootProject.name = 'java-experiments'
+include 'console-app-example'
+include 'spring-boot-app-example'

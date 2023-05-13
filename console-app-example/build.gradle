@@ -1,0 +1,37 @@
+description = 'Console application with PostgreSQL cluster via Testcontainers'
+
+//plugins {
+//    id 'java'
+//    id 'io.freefair.lombok' version '8.0.1'
+//}
+//
+//group 'io.github.mfvanek'
+//version '1.1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenLocal()
+//    mavenCentral()
+//}
+//
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_17
+//    targetCompatibility = JavaVersion.VERSION_17
+//}
+//
+//test {
+//    useJUnitPlatform()
+//}
+
+dependencies {
+    implementation "org.postgresql:postgresql:${postgresqlVersion}"
+    implementation "com.zaxxer:HikariCP:${hikariVersion}"
+    implementation "io.github.mfvanek:pg-index-health-testing:${pgihVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+
+    testImplementation 'org.testcontainers:postgresql'
+    //testImplementation 'org.assertj:assertj-core:3.24.2'
+}

@@ -1,5 +1,4 @@
 /.idea/
-/postgresql_testcontainers_example/.gradle/
 *.iml
 *.ipr
-/postgresql_testcontainers_example/build/
+/.gradle/
