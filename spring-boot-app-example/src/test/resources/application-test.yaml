@@ -3,3 +3,7 @@ logging:
         org.springframework:
             jdbc: DEBUG
             orm.jpa.JpaTransactionManager: DEBUG
+
+spring:
+    jpa:
+        show-sql: true
