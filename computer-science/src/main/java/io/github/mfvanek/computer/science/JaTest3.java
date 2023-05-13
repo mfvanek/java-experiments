@@ -19,7 +19,7 @@ public class JaTest3 {
     }
 
     public static void main(String[] args) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(getFileFromResource("input.txt")));
+        try (BufferedReader reader = new BufferedReader(new FileReader(getFileFromResource("input2.txt")));
              PrintWriter writer = new PrintWriter(new FileWriter("output.txt"))) {
             int n = Integer.parseInt(reader.readLine());
             int current = 0;
