@@ -1,1 +1,57 @@
+spring:
+    jackson:
+        deserialization:
+            fail-on-unknown-properties: false
+        mapper:
+            default-view-inclusion: true
+        serialization:
+            write-dates-as-timestamps: false
+    jpa:
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+        open-in-view: false
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                enable_lazy_load_no_trans: false
+    main.banner-mode: off
+    application.name: spring-boot-app-example
 
+server:
+    port: 8080
+    servlet:
+        context-path: /api
+    # See also https://docs.spring.io/spring-boot/docs/2.7.9/reference/html/application-properties.html#appendix.application-properties.server
+    tomcat:
+        accept-count: 10
+        max-connections: 400
+        threads:
+            max: 10
+            min-spare: 5 # actuator port uses the same configuration
+
+management:
+    server:
+        port: 8090
+    endpoints:
+        enabled-by-default: false
+        web:
+            exposure.include: health,info
+    endpoint:
+        health:
+            enabled: true
+            probes.enabled: true
+            group:
+                readiness:
+                    include: readinessState,db
+                    additional-path: server:/readyz # In order to collect probes from application main port
+                    # show-components: always
+        info:
+            enabled: true
+    info:
+        env.enabled: true
+    health:
+        livenessstate:
+            enabled: true
+        readinessstate:
+            enabled: true

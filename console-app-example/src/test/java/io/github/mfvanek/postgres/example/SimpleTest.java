@@ -1,20 +1,21 @@
 package io.github.mfvanek.postgres.example;
 
-import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
+import javax.annotation.Nonnull;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
+import org.testcontainers.utility.DockerImageName;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collections;
-
-import org.testcontainers.containers.wait.strategy.Wait;
-import org.testcontainers.utility.DockerImageName;
+import javax.sql.DataSource;
 
 class SimpleTest {
 
@@ -46,7 +47,7 @@ class SimpleTest {
         return resultSet;
     }
 
-    private HikariDataSource getDataSource(JdbcDatabaseContainer<?> container) {
+    static HikariDataSource getDataSource(@Nonnull final JdbcDatabaseContainer<?> container) {
         return HikariDataSourceProvider.getDataSource(
                 container.getJdbcUrl(), container.getUsername(), container.getPassword());
     }

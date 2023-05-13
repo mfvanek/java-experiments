@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-final class PgUrlParser {
+public final class PgUrlParser {
 
     static final String URL_HEADER = "jdbc:postgresql://";
 

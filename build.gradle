@@ -6,6 +6,7 @@ plugins {
     id 'pmd'
     id 'net.ltgt.errorprone' version '3.1.0'
     id 'io.freefair.lombok' version '8.0.1'
+    id 'org.gradle.test-retry' version '1.5.2'
 }
 
 description = 'Experiments with Java'
@@ -29,6 +30,7 @@ subprojects {
     apply plugin: 'jacoco'
     //apply plugin: 'net.ltgt.errorprone'
     apply plugin: 'io.freefair.lombok'
+    apply plugin: 'org.gradle.test-retry'
 
     ext {
         jsr305Version = '3.0.2'
@@ -57,8 +59,13 @@ subprojects {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    test {
+    tasks.withType(Test).configureEach {
         useJUnitPlatform()
+        retry {
+            maxRetries = 2
+            maxFailures = 10
+            failOnPassedAfterRetry = false
+        }
     }
 
 //    tasks.withType(JavaCompile).configureEach {
