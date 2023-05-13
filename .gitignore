@@ -1,5 +1,9 @@
 /.idea/
-/postgresql_testcontainers_example/.gradle/
 *.iml
 *.ipr
-/postgresql_testcontainers_example/build/
+/.gradle/
+/spring-boot-app-example/build/
+/console-app-example/build/
+/computer-science/build/
+/output.txt
+/spring-only-app-example/build/
