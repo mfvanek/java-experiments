@@ -2,14 +2,13 @@ package io.github.mfvanek.pg.cluster.entities;
 
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
 import javax.annotation.Nonnull;
-
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
