@@ -31,7 +31,7 @@ subprojects {
     apply(plugin = "org.gradle.test-retry")
 
     dependencies {
-        implementation("com.google.code.findbugs:jsr305:${jsr305Version}")
+        implementation("com.google.code.findbugs:jsr305:$jsr305Version")
         implementation(enforcedPlatform("org.testcontainers:testcontainers-bom:1.18.1"))
 
         testImplementation("org.assertj:assertj-core:3.24.2")
@@ -45,16 +45,16 @@ subprojects {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
-    }
 
-    tasks.withType<Test>().configureEach {
-        useJUnitPlatform()
-        retry {
-            maxRetries.set(2)
-            maxFailures.set(10)
-            failOnPassedAfterRetry.set(false)
+        test {
+            useJUnitPlatform()
+            retry {
+                maxRetries.set(2)
+                maxFailures.set(10)
+                failOnPassedAfterRetry.set(false)
+            }
+            finalizedBy(jacocoTestReport)
         }
-        finalizedBy(tasks.jacocoTestReport)
     }
 }
 
