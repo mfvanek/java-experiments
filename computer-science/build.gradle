@@ -1,6 +1,6 @@
-description = 'Some stuff'
+description = "Some stuff"
 
 dependencies {
-    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
-    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation("ch.qos.logback:logback-classic:${logbackVersion}")
+    implementation("org.slf4j:slf4j-api:${slf4jVersion}")
 }
