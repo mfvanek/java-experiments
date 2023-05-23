@@ -1,6 +1,9 @@
 description = "Spring only application with embedded database"
 
 dependencies {
+    val slf4jVersion: String by rootProject.extra
+    val logbackVersion: String by rootProject.extra
+
     implementation(enforcedPlatform("org.springframework:spring-framework-bom:6.0.9"))
     implementation("org.springframework:spring-context")
     implementation("org.springframework:spring-jdbc")

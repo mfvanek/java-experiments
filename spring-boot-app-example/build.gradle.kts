@@ -7,6 +7,8 @@ plugins {
 description = "Spring Boot application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
+    val pgihVersion: String by rootProject.extra
+
     implementation(project(":console-app-example"))
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
