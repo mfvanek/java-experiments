@@ -22,7 +22,8 @@ import org.threeten.extra.MutableClock;
 
 @SpringBootTest(
         classes = BaseTest.CustomClockConfiguration.class,
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = "pg.index.health.test.enabled=false")
 @ActiveProfiles("test")
 public abstract class BaseTest {
 
