@@ -1,19 +1,11 @@
 package io.github.mfvanek.computer.science;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 
 public class ComputerScience3List {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
     /*
     System.out.println(" == removeNthFromEnd");
     ListNode lst1 = create(new int[]{1, 2, 2, 1});
@@ -43,18 +35,18 @@ public class ComputerScience3List {
     System.out.println(isPalindrome(lst5)); // true
 
 */
-    System.out.println(" == deleteDuplicates");
-    final ListNode lst0 = create(new int[]{1, 1});
-    printAll(lst0);
-    printAll(deleteDuplicates(lst0));
+        System.out.println(" == deleteDuplicates");
+        final ListNode lst0 = create(new int[]{1, 1});
+        printAll(lst0);
+        printAll(deleteDuplicates(lst0));
 
-    final ListNode lst1 = create(new int[]{1, 1, 2, 2, 3});
-    printAll(lst1);
-    printAll(deleteDuplicates(lst1));
+        final ListNode lst1 = create(new int[]{1, 1, 2, 2, 3});
+        printAll(lst1);
+        printAll(deleteDuplicates(lst1));
 
-    final ListNode lst2 = create(new int[]{1,1,2,3,3,4,4,5});
-    printAll(lst2);
-    printAll(deleteDuplicates(lst2));
+        final ListNode lst2 = create(new int[]{1,1,2,3,3,4,4,5});
+        printAll(lst2);
+        printAll(deleteDuplicates(lst2));
 
     /*
     SimpleLinkedList list = new SimpleLinkedList();
@@ -79,22 +71,22 @@ public class ComputerScience3List {
     list.printAll();
     System.out.println();
      */
-  }
-
-  /*
-  Дан односвязный список. Нужно удалить N-й элемент с конца. Вернуть ссылку на head.
-  Пример:
-  Input:  [1,2,3,4,5], n = 2
-  Output: [1,2,3,5]
-   */
-  public static ListNode removeNthFromEnd(ListNode head, int n) {
-    if (head == null) {
-      return null;
     }
 
-    if (head.next == null && n == 1) {
-      return null;
-    }
+    /*
+    Дан односвязный список. Нужно удалить N-й элемент с конца. Вернуть ссылку на head.
+    Пример:
+    Input:  [1,2,3,4,5], n = 2
+    Output: [1,2,3,5]
+     */
+    public static ListNode removeNthFromEnd(ListNode head, int n) {
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null && n == 1) {
+            return null;
+        }
 
     /*
     // naive
@@ -123,27 +115,27 @@ public class ComputerScience3List {
     return dummy.next;
      */
 
-    ListNode dummy = new ListNode(-1, head);
-    ListNode slow = dummy;
-    ListNode fast = dummy;
+        ListNode dummy = new ListNode(-1, head);
+        ListNode slow = dummy;
+        ListNode fast = dummy;
 
-    for (int i = 1; i <= n; ++i) {
-      fast = fast.next;
+        for (int i = 1; i <= n; ++i) {
+            fast = fast.next;
+        }
+
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+
+        slow.next = slow.next != null ? slow.next.next : null;
+        return dummy.next;
     }
 
-    while (fast.next != null) {
-      slow = slow.next;
-      fast = fast.next;
-    }
-
-    slow.next = slow.next != null ? slow.next.next : null;
-    return dummy.next;
-  }
-
-  public static ListNode deleteDuplicates(ListNode head) {
-    if (head == null || head.next == null) {
-      return head;
-    }
+    public static ListNode deleteDuplicates(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
 
     /*
     // naive
@@ -178,60 +170,60 @@ public class ComputerScience3List {
     return dummy.next;
      */
 
-    ListNode dummy = new ListNode(-1, head);
-    ListNode prev = dummy;
-    ListNode cur = head;
-    while (cur != null && cur.next != null) {
-      if (cur.val == cur.next.val) {
-        int temp = cur.val;
-        while (cur != null && cur.val == temp) {
-          cur = cur.next;
+        ListNode dummy = new ListNode(-1, head);
+        ListNode prev = dummy;
+        ListNode cur = head;
+        while (cur != null && cur.next != null) {
+            if (cur.val == cur.next.val) {
+                int temp = cur.val;
+                while (cur != null && cur.val == temp) {
+                    cur = cur.next;
+                }
+            } else {
+                prev.next = cur;
+                prev = cur;
+                cur = cur.next;
+            }
         }
-      } else {
         prev.next = cur;
-        prev = cur;
-        cur = cur.next;
-      }
+        return dummy.next;
     }
-    prev.next = cur;
-    return dummy.next;
-  }
 
-  static ListNode create(int[] vals) {
-    ListNode next = null;
-    for (int j = vals.length - 1; j >= 0; --j) {
-      ListNode cur = new ListNode(vals[j], next);
-      next = cur;
+    static ListNode create(int[] vals) {
+        ListNode next = null;
+        for (int j = vals.length - 1; j >= 0; --j) {
+            ListNode cur = new ListNode(vals[j], next);
+            next = cur;
+        }
+        return next;
     }
-    return next;
-  }
 
-  static void printAll(ListNode head) {
-    if (head == null) {
-      System.out.println("empty!");
-      return;
+    static void printAll(ListNode head) {
+        if (head == null) {
+            System.out.println("empty!");
+            return;
+        }
+        ListNode elem = head;
+        System.out.print('[');
+        do {
+            System.out.print(elem.val);
+            elem = elem.next;
+        } while (elem != null);
+        System.out.print(']');
+        System.out.println();
     }
-    ListNode elem = head;
-    System.out.print('[');
-    do {
-      System.out.print(elem.val);
-      elem = elem.next;
-    } while (elem != null);
-    System.out.print(']');
-    System.out.println();
-  }
 
-  public static ListNode middleNode(ListNode head) {
-    ListNode slow = head;
-    ListNode fast = head;
-    while (fast != null && fast.next != null) {
-      slow = slow.next;
-      fast = fast.next.next;
+    public static ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
-    return slow;
-  }
 
-  public static boolean isPalindrome(ListNode head) {
+    public static boolean isPalindrome(ListNode head) {
     /*
     // wrong (
     Deque<Integer> stack = new LinkedList<>();
@@ -269,93 +261,93 @@ public class ComputerScience3List {
     }
     return res == 0;
      */
-    ListNode slow = head;
-    ListNode fast = head;
-    while (fast != null && fast.next != null) {
-      slow = slow.next;
-      fast = fast.next.next;
-    }
-    if (fast != null) { // odd nodes in the list
-      slow = slow.next; //move forward
-    }
-    slow = reverse(slow);
-    fast = head;
-    while(slow != null) {
-      if (slow.val != fast.val) {
-        return false;
-      }
-      slow = slow.next;
-      fast = fast.next;
-    }
-    return true;
-  }
-
-  private static ListNode reverse(ListNode head) {
-    ListNode prev = null;
-    while (head != null) {
-      ListNode temp = head;
-      head = head.next;
-      temp.next = prev;
-      prev = temp;
-    }
-    return prev;
-  }
-
-  public static class Node {
-    Node next;
-    final int baggage;
-
-    private Node(@Nullable Node next, final int elem) {
-      this.next = next;
-      this.baggage = elem;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        if (fast != null) { // odd nodes in the list
+            slow = slow.next; //move forward
+        }
+        slow = reverse(slow);
+        fast = head;
+        while(slow != null) {
+            if (slow.val != fast.val) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return true;
     }
 
-    public static Node head(final int elem) {
-      return new Node(null, elem);
+    private static ListNode reverse(ListNode head) {
+        ListNode prev = null;
+        while (head != null) {
+            ListNode temp = head;
+            head = head.next;
+            temp.next = prev;
+            prev = temp;
+        }
+        return prev;
     }
 
-    public static Node withNext(Node next, final int elem) {
-      Objects.requireNonNull(next);
-      return new Node(next, elem);
-    }
-  }
+    public static class Node {
+        Node next;
+        final int baggage;
 
-  public static class SimpleLinkedList {
-    private Node head;
-    private Node tail;
+        private Node(@Nullable Node next, final int elem) {
+            this.next = next;
+            this.baggage = elem;
+        }
 
-    void add(Node item) {
-      Objects.requireNonNull(item);
-      if (tail != null) {
-        tail.next = item;
-      } else {
-        head = item;
-      }
-      tail = item;
-    }
+        public static Node head(final int elem) {
+            return new Node(null, elem);
+        }
 
-    void printAll() {
-      if (hasCycle()) {
-        System.out.println("Has cycle!!!!");
-        return;
-      }
-      if (head == null) {
-        System.out.println("empty!");
-        return;
-      }
-      Node elem = head;
-      System.out.print('[');
-      do {
-        System.out.print(elem.baggage);
-        elem = elem.next;
-      } while (elem != null);
-      System.out.print(']');
+        public static Node withNext(Node next, final int elem) {
+            Objects.requireNonNull(next);
+            return new Node(next, elem);
+        }
     }
 
-    boolean hasCycle() {
-      if (head == null) {
-        return false;
-      }
+    public static class SimpleLinkedList {
+        private Node head;
+        private Node tail;
+
+        void add(Node item) {
+            Objects.requireNonNull(item);
+            if (tail != null) {
+                tail.next = item;
+            } else {
+                head = item;
+            }
+            tail = item;
+        }
+
+        void printAll() {
+            if (hasCycle()) {
+                System.out.println("Has cycle!!!!");
+                return;
+            }
+            if (head == null) {
+                System.out.println("empty!");
+                return;
+            }
+            Node elem = head;
+            System.out.print('[');
+            do {
+                System.out.print(elem.baggage);
+                elem = elem.next;
+            } while (elem != null);
+            System.out.print(']');
+        }
+
+        boolean hasCycle() {
+            if (head == null) {
+                return false;
+            }
 //      Set<Node> visitedNodes = new HashSet<>();
 //      Node elem = head;
 //      do {
@@ -365,49 +357,49 @@ public class ComputerScience3List {
 //        }
 //        elem = elem.next;
 //      } while (elem != null);
-      Node slow = head;
-      Node fast = head;
-      do {
+            Node slow = head;
+            Node fast = head;
+            do {
 
-        slow = slow.next;
-        fast = fast.next;
-        if (fast == null) {
-          return false;
+                slow = slow.next;
+                fast = fast.next;
+                if (fast == null) {
+                    return false;
+                }
+                fast = fast.next;
+                if (fast == slow) {
+                    return true; // cycle!
+                }
+            } while (slow != null && fast != null);
+            return false;
         }
-        fast = fast.next;
-        if (fast == slow) {
-          return true; // cycle!
+
+        @Nullable
+        Node detectCycle() {
+            if (head == null) {
+                return null;
+            }
+            boolean intersection = false;
+            Node slow = head;
+            Node fast = head;
+            while (fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next.next;
+                if (fast == slow) {
+                    intersection = true;
+                    break;
+                }
+            }
+            if (!intersection) {
+                return null;
+            }
+
+            slow = head;
+            while (slow != fast) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+            return slow;
         }
-      } while (slow != null && fast != null);
-      return false;
     }
-
-    @Nullable
-    Node detectCycle() {
-      if (head == null) {
-        return null;
-      }
-      boolean intersection = false;
-      Node slow = head;
-      Node fast = head;
-      while (fast != null && fast.next != null) {
-        slow = slow.next;
-        fast = fast.next.next;
-        if (fast == slow) {
-          intersection = true;
-          break;
-        }
-      }
-      if (!intersection) {
-        return null;
-      }
-
-      slow = head;
-      while (slow != fast) {
-        slow = slow.next;
-        fast = fast.next;
-      }
-      return slow;
-    }
-  }
 }
