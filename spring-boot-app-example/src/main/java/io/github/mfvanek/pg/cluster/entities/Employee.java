@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Comment;
 
 import java.math.BigDecimal;
 
@@ -22,7 +23,7 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "employees")
-@org.hibernate.annotations.Table(comment = "Table for storing employees data", appliesTo = "employees")
+@Comment("Table for storing employees data")
 public class Employee extends BaseEntity {
 
     @NotNull

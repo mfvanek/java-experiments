@@ -21,6 +21,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation("org.threeten:threeten-extra:1.7.2")
+    testImplementation("io.github.mfvanek:pg-index-health-test-starter:${pgihVersion}")
 
     // https://github.com/netty/netty/issues/11020
     if (osdetector.arch == "aarch_64") {
