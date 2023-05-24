@@ -3,6 +3,9 @@ package io.github.mfvanek.pg.cluster.controllers;
 import io.github.mfvanek.pg.cluster.support.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.web.reactive.server.WebTestClient;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,7 +14,11 @@ class ClusterSupportControllerTest extends BaseTest {
 
     @Test
     void failoverCanBePerformedOnlyOnce() {
-        final Boolean firstResult = webTestClient.post()
+        final WebTestClient client = webTestClient.mutate()
+                .responseTimeout(Duration.ofSeconds(300L))
+                .build();
+
+        final Boolean firstResult = client.post()
                 .uri("/v1/cluster/failover")
                 .exchange()
                 .expectStatus().isOk()
@@ -20,7 +27,7 @@ class ClusterSupportControllerTest extends BaseTest {
                 .getResponseBody();
         assertThat(firstResult).isTrue();
 
-        final Boolean secondResult = webTestClient.post()
+        final Boolean secondResult = client.post()
                 .uri("/v1/cluster/failover")
                 .exchange()
                 .expectStatus().isOk()
