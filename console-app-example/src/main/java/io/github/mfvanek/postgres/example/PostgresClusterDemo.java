@@ -20,9 +20,9 @@ public class PostgresClusterDemo {
         try (var clusterWrapper = PostgreSqlClusterWrapper.builder()
                 .withUsername("test_user")
                 .withPassword("test_password")
+                .withDatabaseName("test_db")
+                .withPostgresVersion("15.2")
                 .build()) {
-            // TODO add ability to setup database name
-            // TODO add ability to force PG version
             // TODO add ability to get connection string with all hosts
             log.info(clusterWrapper.getFirstContainerJdbcUrl());
             log.info(clusterWrapper.getSecondContainerJdbcUrl());

@@ -26,6 +26,8 @@ public class DatabaseConfig {
         return PostgreSqlClusterWrapper.builder()
                 .withUsername("test_user")
                 .withPassword("test_password")
+                .withDatabaseName("test_database")
+                .withPostgresVersion("15.2")
                 .build();
     }
 
