@@ -22,7 +22,7 @@ val postgresqlVersion by extra { "42.6.0" }
 val slf4jVersion by extra { "2.0.7" }
 val logbackVersion by extra { "1.4.7" }
 val hikariVersion by extra { "5.0.1" }
-val pgihVersion by extra { "0.9.1" }
+val pgihVersion by extra { "0.9.2" }
 
 subprojects {
     apply(plugin = "java")
