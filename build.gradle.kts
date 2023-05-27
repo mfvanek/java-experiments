@@ -40,12 +40,16 @@ subprojects {
         testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
 
-    tasks {
-        java {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
-        }
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 
+    jacoco {
+        toolVersion = "0.8.10"
+    }
+
+    tasks {
         test {
             useJUnitPlatform()
             retry {
