@@ -7,21 +7,19 @@ plugins {
 description = "Spring Boot application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
-    val pgihVersion: String by rootProject.extra
-
     implementation(project(":console-app-example"))
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("io.github.mfvanek:pg-index-health-testing:$pgihVersion")
+    implementation(rootProject.libs.pgIndexHealth.testing)
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly(rootProject.libs.postgresql)
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation("org.threeten:threeten-extra:1.7.2")
-    testImplementation("io.github.mfvanek:pg-index-health-test-starter:$pgihVersion")
+    testImplementation(rootProject.libs.pgIndexHealth.testStarter)
 
     // https://github.com/netty/netty/issues/11020
     if (osdetector.arch == "aarch_64") {
