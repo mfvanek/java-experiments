@@ -60,3 +60,7 @@ Gradle multi-module project for experiments with Java
 * [You (probably) need liveness and readiness probes](https://developers.redhat.com/blog/2020/11/10/you-probably-need-liveness-and-readiness-probes)
 * [Liveness probes are dangerous](https://srcco.de/posts/kubernetes-liveness-probes-are-dangerous.html)
 * [Liveness and Readiness Probes](https://cloud.redhat.com/blog/liveness-and-readiness-probes)
+
+### Load Testing
+#### Gatling
+* [Write Gatling Performance Tests with Java](https://rieckpil.de/write-gatling-performance-tests-with-java/)
