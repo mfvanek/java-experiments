@@ -9,6 +9,7 @@ Gradle multi-module project for experiments with Java
 * [Common misunderstanding of Metaspace and its sin on killing containers](https://masteranyfield.com/2021/05/12/common-misunderstanding-of-metaspace-and-its-sin-on-killing-containers/)
 * [Mastering GC: tame the beast and make it your best ally](https://www.youtube.com/watch?v=oFhGtshu4ww)
 * [Secrets of Performance Tuning Java](https://www.youtube.com/watch?v=wApqCjHWF8Q)
+* [Java Performance Puzzlers](https://www.youtube.com/watch?v=wgQBz2Ldhvk)
 
 #### RUS
 * [How we learned to use Java in Docker](https://habr.com/ru/companies/hh/articles/450954/)
