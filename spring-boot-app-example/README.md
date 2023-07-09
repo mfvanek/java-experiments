@@ -5,6 +5,14 @@ Demo app with PostgreSQL cluster (Spring Boot)
 Java 17+  
 Spring Boot 3.0+
 
+## Local development
+### Build and run app
+```shell
+./../gradlew bootRun\
+ --args='--spring.profiles.active=default'\
+ -PjvmArgs="-XX:MinHeapSize=300m -XX:InitialHeapSize=500m -XX:MaxHeapSize=500m -XX:+ExitOnOutOfMemoryError -XX:MaxMetaspaceSize=200m -XX:MetaspaceSize=100m -XX:CompressedClassSpaceSize=50m -XX:ReservedCodeCacheSize=50m -XX:MaxDirectMemorySize=20m -XX:+AlwaysActAsServerClassMachine -XX:+UseG1GC -XX:ActiveProcessorCount=2 -XX:+PrintFlagsFinal -XX:NativeMemoryTracking=summary -XX:+UnlockDiagnosticVMOptions -XX:+PrintNMTStatistics"
+```
+
 ## API
 ### Actuator
 ```shell
