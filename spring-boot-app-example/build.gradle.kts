@@ -30,3 +30,10 @@ dependencies {
 springBoot {
     buildInfo()
 }
+
+tasks.bootRun {
+    if (project.hasProperty("jvmArgs")) {
+        val jvmArgsFromCommandLine = project.properties["jvmArgs"].toString().split("\\s".toRegex())
+        jvmArgs = jvmArgsFromCommandLine
+    }
+}
