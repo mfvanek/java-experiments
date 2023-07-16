@@ -16,7 +16,8 @@ spring:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
                 enable_lazy_load_no_trans: false
     main.banner-mode: off
-    application.name: spring-boot-app-example
+    application:
+        name: spring-boot-app-example
 
 server:
     port: 8080
@@ -29,6 +30,7 @@ server:
         threads:
             max: 10
             min-spare: 5 # actuator port uses the same configuration
+    shutdown: graceful
 
 management:
     server:
