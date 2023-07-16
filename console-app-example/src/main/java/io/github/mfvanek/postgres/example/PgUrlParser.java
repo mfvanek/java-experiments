@@ -35,6 +35,6 @@ public final class PgUrlParser {
                 .sorted()
                 .collect(Collectors.joining(",")) +
                 extractDatabaseName(pgUrls) +
-                "?targetServerType=primary";
+                "?targetServerType=primary&hostRecheckSeconds=2&connectTimeout=1&socketTimeout=600";
     }
 }
