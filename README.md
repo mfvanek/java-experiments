@@ -15,6 +15,10 @@ Gradle multi-module project for experiments with Java
 * [How we learned to use Java in Docker](https://habr.com/ru/companies/hh/articles/450954/)
 * [Configuring the memory of a JVM application in Kubernetes](https://habr.com/ru/companies/domclick/articles/691240/)
 
+### Heap dumps
+#### RUS
+* [Analysis of complex cases OutOfMemoryError by Vladimir Sitnikov](https://www.youtube.com/watch?v=OE3wowy29mg)
+
 ### JVM internals
 * [Memory footprint of a Java process by Andrei Pangin](https://www.youtube.com/watch?v=c755fFv1Rnk)
 * [What is Metaspace?](https://stuefe.de/posts/metaspace/what-is-metaspace/)
