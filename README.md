@@ -61,6 +61,10 @@ Gradle multi-module project for experiments with Java
 * [Expensive DELETE by Nikolay Samokhvalov](https://habr.com/ru/articles/523536/)
 * [Changing the schema of PostgreSQL tables without long locks](https://habr.com/ru/companies/yandex/articles/435880/)
 
+#### Column migration from int to bigint
+* [Column migration from INT to BIGINT in PostgreSQL](https://zemanta.github.io/2021/08/25/column-migration-from-int-to-bigint-in-postgresql/) [eng]
+* [DBA: when serial is almost over](https://habr.com/ru/companies/tensor/articles/547740/) [rus]
+
 ### Kubernetes
 * [You (probably) need liveness and readiness probes](https://developers.redhat.com/blog/2020/11/10/you-probably-need-liveness-and-readiness-probes)
 * [Liveness probes are dangerous](https://srcco.de/posts/kubernetes-liveness-probes-are-dangerous.html)
