@@ -15,6 +15,10 @@ Gradle multi-module project for experiments with Java
 * [How we learned to use Java in Docker](https://habr.com/ru/companies/hh/articles/450954/)
 * [Configuring the memory of a JVM application in Kubernetes](https://habr.com/ru/companies/domclick/articles/691240/)
 
+### Heap dumps
+#### RUS
+* [Analysis of complex cases OutOfMemoryError by Vladimir Sitnikov](https://www.youtube.com/watch?v=OE3wowy29mg)
+
 ### JVM internals
 * [Memory footprint of a Java process by Andrei Pangin](https://www.youtube.com/watch?v=c755fFv1Rnk)
 * [What is Metaspace?](https://stuefe.de/posts/metaspace/what-is-metaspace/)
@@ -28,6 +32,10 @@ Gradle multi-module project for experiments with Java
 ### Java Core
 * [Method References in Java](https://www.baeldung.com/java-method-references)
 * [Type Erasure in Java Explained](https://www.baeldung.com/java-type-erasure)
+
+#### ClassLoaders
+* [Understanding the Java Class Loader Starting from Java 9](https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/) [eng]
+* [How does the Java ClassLoader system actually work?](https://habr.com/ru/articles/748758/) [rus]
 
 ### Spring Boot
 #### RUS
@@ -56,6 +64,10 @@ Gradle multi-module project for experiments with Java
 * [Indexes in PostgreSQL. How to understand what to create](https://www.youtube.com/watch?v=ju9F8OvnL4E)
 * [Expensive DELETE by Nikolay Samokhvalov](https://habr.com/ru/articles/523536/)
 * [Changing the schema of PostgreSQL tables without long locks](https://habr.com/ru/companies/yandex/articles/435880/)
+
+#### Column migration from int to bigint
+* [Column migration from INT to BIGINT in PostgreSQL](https://zemanta.github.io/2021/08/25/column-migration-from-int-to-bigint-in-postgresql/) [eng]
+* [DBA: when serial is almost over](https://habr.com/ru/companies/tensor/articles/547740/) [rus]
 
 ### Kubernetes
 * [You (probably) need liveness and readiness probes](https://developers.redhat.com/blog/2020/11/10/you-probably-need-liveness-and-readiness-probes)
