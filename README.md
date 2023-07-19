@@ -33,6 +33,10 @@ Gradle multi-module project for experiments with Java
 * [Method References in Java](https://www.baeldung.com/java-method-references)
 * [Type Erasure in Java Explained](https://www.baeldung.com/java-type-erasure)
 
+#### ClassLoaders
+* [Understanding the Java Class Loader Starting from Java 9](https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/) [eng]
+* [How does the Java ClassLoader system actually work?](https://habr.com/ru/articles/748758/) [rus]
+
 ### Spring Boot
 #### RUS
 * [Boot yourself, Spring is coming by Evgeny Borisov](https://www.youtube.com/watch?v=yy43NOreJG4)
