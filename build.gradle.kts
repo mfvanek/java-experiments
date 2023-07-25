@@ -4,7 +4,7 @@ plugins {
     id("java")
     id("jacoco")
     id("io.freefair.lombok") version "8.1.0" apply false
-    id("org.gradle.test-retry") version "1.5.3" apply false
+    id("org.gradle.test-retry") version "1.5.4" apply false
     id("com.github.ben-manes.versions") version "0.47.0"
 }
 
@@ -31,7 +31,7 @@ subprojects {
         implementation(platform("org.testcontainers:testcontainers-bom:1.18.3"))
 
         testImplementation("org.assertj:assertj-core:3.24.2")
-        testImplementation(platform("org.junit:junit-bom:5.9.3"))
+        testImplementation(platform("org.junit:junit-bom:5.10.0"))
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
         testImplementation("org.junit.jupiter:junit-jupiter-api")
     }
