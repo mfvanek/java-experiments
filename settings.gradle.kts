@@ -17,6 +17,9 @@ dependencyResolutionManagement {
                     .versionRef(pgIndexHealth)
             library("pgIndexHealth-testing", "io.github.mfvanek", "pg-index-health-testing")
                     .versionRef(pgIndexHealth)
+            val junitVersion = version("junit", "5.10.0")
+            library("junit-bom", "org.junit", "junit-bom")
+                    .versionRef(junitVersion)
         }
     }
 }
