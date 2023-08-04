@@ -27,6 +27,13 @@ dependencies {
     }
 }
 
+dependencyManagement {
+    imports {
+        val junitVersion = rootProject.libs.versions.junit.get()
+        mavenBom("org.junit:junit-bom:$junitVersion")
+    }
+}
+
 springBoot {
     buildInfo()
 }
