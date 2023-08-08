@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.sql.DataSource;
@@ -23,12 +22,7 @@ public class PostgresClusterDemo {
                 .withDatabaseName("test_db")
                 .withPostgresVersion("15.2")
                 .build()) {
-            // TODO add ability to get connection string with all hosts
-            log.info(clusterWrapper.getFirstContainerJdbcUrl());
-            log.info(clusterWrapper.getSecondContainerJdbcUrl());
-
-            final String pgUrl = PgUrlParser.buildCommonUrlToPrimary(
-                    Set.of(clusterWrapper.getFirstContainerJdbcUrl(), clusterWrapper.getSecondContainerJdbcUrl()));
+            final var pgUrl = clusterWrapper.getCommonUrlToPrimary();
             log.info("pgUrl = {}", pgUrl);
 
             try (HikariDataSource dataSource = HikariDataSourceProvider.getDataSource(

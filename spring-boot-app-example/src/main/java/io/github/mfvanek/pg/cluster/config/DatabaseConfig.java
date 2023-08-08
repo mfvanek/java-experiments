@@ -1,7 +1,7 @@
 package io.github.mfvanek.pg.cluster.config;
 
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
-import io.github.mfvanek.postgres.example.PgUrlParser;
+import io.github.mfvanek.postgres.example.HikariDataSourceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,11 +11,8 @@ import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.MutablePropertySources;
 
 import java.util.Map;
-import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.sql.DataSource;
-
-import static io.github.mfvanek.postgres.example.HikariDataSourceProvider.getDataSource;
 
 @Slf4j
 @Configuration(proxyBeanMethods = false)
@@ -34,8 +31,7 @@ public class DatabaseConfig {
     @Bean
     public DataSource dataSource(@Nonnull final PostgreSqlClusterWrapper clusterWrapper,
                                  @Nonnull final Environment environment) {
-        final String pgUrl = PgUrlParser.buildCommonUrlToPrimary(
-                Set.of(clusterWrapper.getFirstContainerJdbcUrl(), clusterWrapper.getSecondContainerJdbcUrl()));
+        final var pgUrl = clusterWrapper.getCommonUrlToPrimary();
         log.info("pgUrl = {}", pgUrl);
 
         if (environment instanceof ConfigurableEnvironment configurableEnvironment) {
@@ -43,6 +39,6 @@ public class DatabaseConfig {
             mps.addFirst(new MapPropertySource("connectionString",
                     Map.ofEntries(Map.entry("spring.datasource.url", pgUrl))));
         }
-        return getDataSource(pgUrl, clusterWrapper.getUsername(), clusterWrapper.getPassword());
+        return HikariDataSourceProvider.getDataSource(pgUrl, clusterWrapper.getUsername(), clusterWrapper.getPassword());
     }
 }
