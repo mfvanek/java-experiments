@@ -11,7 +11,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation(rootProject.libs.pgIndexHealth.testing)
+    implementation(rootProject.libs.pg.index.health.testing)
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     runtimeOnly(rootProject.libs.postgresql)
@@ -19,7 +19,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation("org.threeten:threeten-extra:1.7.2")
-    testImplementation(rootProject.libs.pgIndexHealth.testStarter)
+    testImplementation(rootProject.libs.pg.index.health.testStarter)
 
     // https://github.com/netty/netty/issues/11020
     if (osdetector.arch == "aarch_64") {

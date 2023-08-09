@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
+import org.postgresql.Driver;
 
 @UtilityClass
 public class HikariDataSourceProvider {
@@ -24,7 +25,7 @@ public class HikariDataSourceProvider {
         hikariConfig.setJdbcUrl(jdbcUrl);
         hikariConfig.setUsername(username);
         hikariConfig.setPassword(password);
-        hikariConfig.setDriverClassName(Class.forName("org.postgresql.Driver").getCanonicalName());
+        hikariConfig.setDriverClassName(Driver.class.getCanonicalName());
         return new HikariDataSource(hikariConfig);
     }
 }
