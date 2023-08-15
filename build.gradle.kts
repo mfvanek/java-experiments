@@ -3,7 +3,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 plugins {
     id("java")
     id("jacoco")
-    id("io.freefair.lombok") version "8.1.0" apply false
+    id("io.freefair.lombok") version "8.2.2" apply false
     id("org.gradle.test-retry") version "1.5.4" apply false
     id("com.github.ben-manes.versions") version "0.47.0"
 }
