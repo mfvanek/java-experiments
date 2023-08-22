@@ -28,7 +28,7 @@ subprojects {
 
     dependencies {
         implementation(rootProject.libs.jsr305)
-        implementation(platform("org.testcontainers:testcontainers-bom:1.18.3"))
+        implementation(platform("org.testcontainers:testcontainers-bom:1.19.0"))
 
         testImplementation("org.assertj:assertj-core:3.24.2")
         testImplementation(platform(rootProject.libs.junit.bom))
