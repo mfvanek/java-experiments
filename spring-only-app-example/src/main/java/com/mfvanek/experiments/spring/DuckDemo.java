@@ -15,8 +15,6 @@ class DuckDemo {
     @Autowired
     private List<Duck> ducks;
 
-    private int count;
-
     void test() {
         for (Duck duck : ducks) {
             System.out.println(String.format("%s says '%s'", AopUtils.getTargetClass(duck).getSimpleName(), duck.quack()));

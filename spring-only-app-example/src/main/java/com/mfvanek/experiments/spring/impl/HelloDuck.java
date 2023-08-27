@@ -1,6 +1,8 @@
 package com.mfvanek.experiments.spring.impl;
 
 import com.mfvanek.experiments.spring.interfaces.Duck;
+import lombok.AccessLevel;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
@@ -10,6 +12,7 @@ import javax.annotation.PreDestroy;
 import java.util.Locale;
 
 @Component
+@Setter(AccessLevel.PACKAGE)
 class HelloDuck implements Duck {
 
     @Autowired
