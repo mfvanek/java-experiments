@@ -20,6 +20,9 @@ dependencyResolutionManagement {
             val junitVersion = version("junit", "5.10.0")
             library("junit-bom", "org.junit", "junit-bom")
                     .versionRef(junitVersion)
+            library("pitest-dashboard-reporter", "it.mulders.stryker:pit-dashboard-reporter:0.2.1")
+            version("pitest-junit5Plugin", "1.2.0")
+            version("pitest-core", "1.14.1")
         }
     }
 }

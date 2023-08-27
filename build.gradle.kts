@@ -1,4 +1,5 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import info.solidsoft.gradle.pitest.PitestTask
 
 plugins {
     id("java")
@@ -6,13 +7,14 @@ plugins {
     id("io.freefair.lombok") version "8.2.2" apply false
     id("org.gradle.test-retry") version "1.5.4" apply false
     id("com.github.ben-manes.versions") version "0.47.0"
+    id("info.solidsoft.pitest") version "1.9.11"
 }
 
 description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.0.2-SNAPSHOT"
+    version = "0.0.3"
 
     repositories {
         mavenLocal()
@@ -33,8 +35,13 @@ subprojects {
         testImplementation("org.assertj:assertj-core:3.24.2")
         testImplementation(platform(rootProject.libs.junit.bom))
         testImplementation("org.junit.jupiter:junit-jupiter-api")
+        testImplementation(platform("org.mockito:mockito-bom:5.5.0"))
+        testImplementation("org.mockito:mockito-core")
 
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+        testRuntimeOnly("org.junit.platform:junit-platform-launcher") {
+            because("required for pitest")
+        }
     }
 
     java {
@@ -55,6 +62,34 @@ subprojects {
                 failOnPassedAfterRetry.set(false)
             }
             finalizedBy(jacocoTestReport)
+        }
+    }
+
+    val projectsWithoutTests = setOf("spring-only-app-example", "spring-boot-app-example")
+    if (!projectsWithoutTests.contains(this.name)) {
+        apply(plugin = "info.solidsoft.pitest")
+        apply(plugin = "info.solidsoft.pitest.aggregator")
+
+        pitest {
+            verbosity.set("DEFAULT")
+            junit5PluginVersion.set(rootProject.libs.versions.pitest.junit5Plugin.get())
+            pitestVersion.set(rootProject.libs.versions.pitest.core.get())
+            threads.set(2)
+            outputFormats.set(setOf("XML", "HTML"))
+            timestampedReports.set(false)
+            exportLineCoverage.set(true)
+
+            reportAggregator {
+                testStrengthThreshold.set(1)
+                mutationThreshold.set(1)
+                maxSurviving.set(1000)
+            }
+        }
+        tasks.withType<PitestTask>().configureEach {
+            mustRunAfter(tasks.test)
+        }
+        tasks.build {
+            dependsOn("pitest", "pitestReportAggregate")
         }
     }
 }
