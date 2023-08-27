@@ -10,6 +10,8 @@ plugins {
     id("info.solidsoft.pitest") version "1.9.11"
 }
 
+apply(plugin = "info.solidsoft.pitest.aggregator")
+
 description = "Experiments with Java"
 
 allprojects {
@@ -21,6 +23,10 @@ allprojects {
         mavenCentral()
     }
 }
+
+val pitestVerbosity = "DEFAULT"
+val pitestThreads = 4
+val pitestOutputFormats = setOf("XML", "HTML")
 
 subprojects {
     apply(plugin = "java")
@@ -68,28 +74,21 @@ subprojects {
     val projectsWithoutTests = setOf("spring-only-app-example", "spring-boot-app-example")
     if (!projectsWithoutTests.contains(this.name)) {
         apply(plugin = "info.solidsoft.pitest")
-        apply(plugin = "info.solidsoft.pitest.aggregator")
 
         pitest {
-            verbosity.set("DEFAULT")
+            verbosity.set(pitestVerbosity)
             junit5PluginVersion.set(rootProject.libs.versions.pitest.junit5Plugin.get())
             pitestVersion.set(rootProject.libs.versions.pitest.core.get())
-            threads.set(2)
-            outputFormats.set(setOf("XML", "HTML"))
+            threads.set(pitestThreads)
+            outputFormats.set(pitestOutputFormats)
             timestampedReports.set(false)
             exportLineCoverage.set(true)
-
-            reportAggregator {
-                testStrengthThreshold.set(1)
-                mutationThreshold.set(1)
-                maxSurviving.set(1000)
-            }
         }
         tasks.withType<PitestTask>().configureEach {
             mustRunAfter(tasks.test)
         }
         tasks.build {
-            dependsOn("pitest", "pitestReportAggregate")
+            dependsOn("pitest")
         }
     }
 }
@@ -116,6 +115,22 @@ tasks {
         isEnabled = false
     }
     build {
-        isEnabled = false
+        dependsOn("pitestReportAggregate")
+    }
+}
+
+pitest {
+    verbosity.set(pitestVerbosity)
+    junit5PluginVersion.set(rootProject.libs.versions.pitest.junit5Plugin.get())
+    pitestVersion.set(rootProject.libs.versions.pitest.core.get())
+    threads.set(pitestThreads)
+    outputFormats.set(pitestOutputFormats)
+    timestampedReports.set(false)
+    exportLineCoverage.set(true)
+
+    reportAggregator {
+        testStrengthThreshold.set(1)
+        mutationThreshold.set(2)
+        maxSurviving.set(1000)
     }
 }
