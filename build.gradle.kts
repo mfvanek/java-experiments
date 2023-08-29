@@ -4,7 +4,7 @@ import info.solidsoft.gradle.pitest.PitestTask
 plugins {
     id("java")
     id("jacoco")
-    id("io.freefair.lombok") version "8.2.2" apply false
+    id("io.freefair.lombok") version "8.3" apply false
     id("org.gradle.test-retry") version "1.5.4" apply false
     id("com.github.ben-manes.versions") version "0.47.0"
     id("info.solidsoft.pitest") version "1.9.11"
