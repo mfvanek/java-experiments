@@ -81,6 +81,12 @@ subprojects {
             outputFormats.set(pitestOutputFormats)
             timestampedReports.set(false)
             exportLineCoverage.set(true)
+
+            reportAggregator {
+                testStrengthThreshold.set(1)
+                mutationThreshold.set(2)
+                maxSurviving.set(1000)
+            }
         }
         tasks.withType<PitestTask>().configureEach {
             mustRunAfter(tasks.test)
@@ -114,13 +120,5 @@ tasks {
     }
     build {
         dependsOn("pitestReportAggregate")
-    }
-}
-
-pitest {
-    reportAggregator {
-        testStrengthThreshold.set(1)
-        mutationThreshold.set(2)
-        maxSurviving.set(1000)
     }
 }
