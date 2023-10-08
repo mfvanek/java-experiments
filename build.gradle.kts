@@ -4,10 +4,10 @@ import info.solidsoft.gradle.pitest.PitestTask
 plugins {
     id("java")
     id("jacoco")
-    id("io.freefair.lombok") version "8.3" apply false
+    id("io.freefair.lombok") version "8.4" apply false
     id("org.gradle.test-retry") version "1.5.6" apply false
-    id("com.github.ben-manes.versions") version "0.48.0"
-    id("info.solidsoft.pitest") version "1.9.11"
+    id("com.github.ben-manes.versions") version "0.49.0"
+    id("info.solidsoft.pitest") version "1.15.0"
 }
 
 apply(plugin = "info.solidsoft.pitest.aggregator")
@@ -16,7 +16,7 @@ description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.0.3"
+    version = "0.0.4"
 
     repositories {
         mavenLocal()
@@ -41,13 +41,11 @@ subprojects {
         testImplementation("org.assertj:assertj-core:3.24.2")
         testImplementation(platform(rootProject.libs.junit.bom))
         testImplementation("org.junit.jupiter:junit-jupiter-api")
-        testImplementation(platform("org.mockito:mockito-bom:5.5.0"))
+        val mockitoVersion = rootProject.libs.versions.mockito.get()
+        testImplementation(platform("org.mockito:mockito-bom:$mockitoVersion"))
         testImplementation("org.mockito:mockito-core")
 
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-        testRuntimeOnly("org.junit.platform:junit-platform-launcher") {
-            because("required for pitest")
-        }
     }
 
     java {
@@ -120,14 +118,6 @@ tasks {
 }
 
 pitest {
-    verbosity.set(pitestVerbosity)
-    junit5PluginVersion.set(rootProject.libs.versions.pitest.junit5Plugin.get())
-    pitestVersion.set(rootProject.libs.versions.pitest.core.get())
-    threads.set(pitestThreads)
-    outputFormats.set(pitestOutputFormats)
-    timestampedReports.set(false)
-    exportLineCoverage.set(true)
-
     reportAggregator {
         testStrengthThreshold.set(1)
         mutationThreshold.set(2)
