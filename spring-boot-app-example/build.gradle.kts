@@ -31,6 +31,8 @@ dependencyManagement {
     imports {
         val junitVersion = rootProject.libs.versions.junit.get()
         mavenBom("org.junit:junit-bom:$junitVersion")
+        val mockitoVersion = rootProject.libs.versions.mockito.get()
+        mavenBom("org.mockito:mockito-bom:$mockitoVersion")
     }
 }
 
