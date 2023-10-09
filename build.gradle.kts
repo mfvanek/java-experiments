@@ -24,10 +24,6 @@ allprojects {
     }
 }
 
-val pitestVerbosity = "DEFAULT"
-val pitestThreads = 4
-val pitestOutputFormats = setOf("XML", "HTML")
-
 subprojects {
     apply(plugin = "java")
     apply(plugin = "jacoco")
@@ -74,18 +70,18 @@ subprojects {
         apply(plugin = "info.solidsoft.pitest")
 
         pitest {
-            verbosity.set(pitestVerbosity)
-            junit5PluginVersion.set(rootProject.libs.versions.pitest.junit5Plugin.get())
-            pitestVersion.set(rootProject.libs.versions.pitest.core.get())
-            threads.set(pitestThreads)
-            outputFormats.set(pitestOutputFormats)
-            timestampedReports.set(false)
-            exportLineCoverage.set(true)
+            verbosity = "DEFAULT"
+            junit5PluginVersion = rootProject.libs.versions.pitest.junit5Plugin.get()
+            pitestVersion = rootProject.libs.versions.pitest.core.get()
+            threads = 4
+            outputFormats = setOf("XML", "HTML")
+            timestampedReports = false
+            exportLineCoverage = true
 
             reportAggregator {
-                testStrengthThreshold.set(1)
-                mutationThreshold.set(2)
-                maxSurviving.set(1000)
+                testStrengthThreshold = 1
+                mutationThreshold = 2
+                maxSurviving = 1000
             }
         }
         tasks.withType<PitestTask>().configureEach {
@@ -115,6 +111,9 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 // To avoid creation of build folder in the root
 tasks {
+    wrapper {
+        gradleVersion = "8.4"
+    }
     jar {
         isEnabled = false
     }
