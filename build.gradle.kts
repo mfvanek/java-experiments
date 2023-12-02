@@ -16,7 +16,7 @@ description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.0.4"
+    version = "0.0.5"
 
     repositories {
         mavenLocal()
@@ -33,6 +33,7 @@ subprojects {
     dependencies {
         implementation(rootProject.libs.jsr305)
         implementation(platform("org.testcontainers:testcontainers-bom:1.19.3"))
+        implementation(platform("io.github.mfvanek:pg-index-health-bom:0.10.2"))
 
         testImplementation("org.assertj:assertj-core:3.24.2")
         testImplementation(platform(rootProject.libs.junit.bom))
@@ -45,15 +46,20 @@ subprojects {
     }
 
     java {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
     }
 
     jacoco {
-        toolVersion = "0.8.10"
+        toolVersion = "0.8.11"
     }
 
     tasks {
+        withType<JavaCompile>().configureEach {
+            options.compilerArgs.add("-parameters")
+        }
+
         test {
             useJUnitPlatform()
             retry {
@@ -112,7 +118,7 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 // To avoid creation of build folder in the root
 tasks {
     wrapper {
-        gradleVersion = "8.4"
+        gradleVersion = "8.5"
     }
     jar {
         isEnabled = false
