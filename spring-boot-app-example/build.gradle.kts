@@ -11,15 +11,15 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation(rootProject.libs.pg.index.health.testing)
+    implementation("io.github.mfvanek:pg-index-health-testing")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    runtimeOnly(rootProject.libs.postgresql)
+    runtimeOnly(libs.postgresql)
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation("org.threeten:threeten-extra:1.7.2")
-    testImplementation(rootProject.libs.pg.index.health.testStarter)
+    testImplementation("io.github.mfvanek:pg-index-health-test-starter")
 
     // https://github.com/netty/netty/issues/11020
     if (osdetector.arch == "aarch_64") {
@@ -29,9 +29,9 @@ dependencies {
 
 dependencyManagement {
     imports {
-        val junitVersion = rootProject.libs.versions.junit.get()
+        val junitVersion = libs.versions.junit.get()
         mavenBom("org.junit:junit-bom:$junitVersion")
-        val mockitoVersion = rootProject.libs.versions.mockito.get()
+        val mockitoVersion = libs.versions.mockito.get()
         mavenBom("org.mockito:mockito-bom:$mockitoVersion")
     }
 }

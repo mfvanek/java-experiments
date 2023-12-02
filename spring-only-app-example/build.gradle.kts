@@ -6,7 +6,7 @@ dependencies {
     implementation("org.springframework:spring-jdbc")
     implementation("org.springframework:spring-aspects")
     implementation("com.h2database:h2:2.2.224")
-    implementation(rootProject.libs.logback.classic)
-    implementation(rootProject.libs.slf4j.api)
+    implementation(libs.logback.classic)
+    implementation(libs.slf4j.api)
     implementation("javax.annotation:javax.annotation-api:1.3.2")
 }
