@@ -5,7 +5,7 @@ plugins {
     id("java")
     id("jacoco")
     id("io.freefair.lombok") version "8.4" apply false
-    id("org.gradle.test-retry") version "1.5.7" apply false
+    id("org.gradle.test-retry") version "1.5.8" apply false
     id("com.github.ben-manes.versions") version "0.50.0"
     id("info.solidsoft.pitest") version "1.15.0"
 }
