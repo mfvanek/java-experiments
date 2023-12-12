@@ -9,7 +9,7 @@ dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
             library("jsr305", "com.google.code.findbugs:jsr305:3.0.2")
-            library("postgresql", "org.postgresql:postgresql:42.7.0")
+            library("postgresql", "org.postgresql:postgresql:42.7.1")
             library("hikaricp", "com.zaxxer:HikariCP:5.1.0")
             library("logback-classic", "ch.qos.logback:logback-classic:1.4.14")
             library("slf4j-api", "org.slf4j:slf4j-api:2.0.9")
