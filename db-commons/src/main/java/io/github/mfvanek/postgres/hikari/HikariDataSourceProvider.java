@@ -1,22 +1,17 @@
-package io.github.mfvanek.postgres.example;
+package io.github.mfvanek.postgres.hikari;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.postgresql.Driver;
 
 import javax.annotation.Nonnull;
 
-import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
-import org.postgresql.Driver;
-
-@UtilityClass
-public class HikariDataSourceProvider {
+public final class HikariDataSourceProvider {
 
     @Nonnull
-    @SneakyThrows
-    public HikariDataSource getDataSource(@Nonnull final String jdbcUrl,
-                                          @Nonnull final String username,
-                                          @Nonnull final String password) {
+    public static HikariDataSource getDataSource(@Nonnull final String jdbcUrl,
+                                                 @Nonnull final String username,
+                                                 @Nonnull final String password) {
         final HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setMaximumPoolSize(3);
         hikariConfig.setConnectionTimeout(250L);

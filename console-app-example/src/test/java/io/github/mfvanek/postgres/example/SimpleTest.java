@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 import javax.annotation.Nonnull;
 
+import io.github.mfvanek.postgres.hikari.HikariDataSourceProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.JdbcDatabaseContainer;
@@ -47,7 +48,7 @@ class SimpleTest {
         return resultSet;
     }
 
-    static HikariDataSource getDataSource(@Nonnull final JdbcDatabaseContainer<?> container) {
+    private static HikariDataSource getDataSource(@Nonnull final JdbcDatabaseContainer<?> container) {
         return HikariDataSourceProvider.getDataSource(
                 container.getJdbcUrl(), container.getUsername(), container.getPassword());
     }

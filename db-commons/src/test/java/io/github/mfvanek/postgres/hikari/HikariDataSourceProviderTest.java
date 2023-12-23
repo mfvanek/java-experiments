@@ -1,14 +1,15 @@
-package io.github.mfvanek.postgres.example;
+package io.github.mfvanek.postgres.hikari;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.junit.jupiter.api.Test;
+import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 
+import javax.annotation.Nonnull;
 import java.util.Collections;
 
-import static io.github.mfvanek.postgres.example.SimpleTest.getDataSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class HikariDataSourceProviderTest {
@@ -29,5 +30,10 @@ class HikariDataSourceProviderTest {
                         .isEqualTo("org.postgresql.Driver");
             }
         }
+    }
+
+    private static HikariDataSource getDataSource(@Nonnull final JdbcDatabaseContainer<?> container) {
+        return HikariDataSourceProvider.getDataSource(
+                container.getJdbcUrl(), container.getUsername(), container.getPassword());
     }
 }

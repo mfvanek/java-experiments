@@ -2,6 +2,7 @@ package io.github.mfvanek.postgres.example;
 
 import com.zaxxer.hikari.HikariDataSource;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
+import io.github.mfvanek.postgres.hikari.HikariDataSourceProvider;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;

@@ -1,3 +1,7 @@
+plugins {
+    id("java-experiments.java-conventions")
+}
+
 description = "Spring only application with embedded database"
 
 dependencies {

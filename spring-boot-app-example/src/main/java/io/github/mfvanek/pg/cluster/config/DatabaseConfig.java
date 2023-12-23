@@ -1,7 +1,7 @@
 package io.github.mfvanek.pg.cluster.config;
 
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
-import io.github.mfvanek.postgres.example.HikariDataSourceProvider;
+import io.github.mfvanek.postgres.hikari.HikariDataSourceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
