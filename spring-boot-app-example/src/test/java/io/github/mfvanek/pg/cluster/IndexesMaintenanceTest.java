@@ -29,7 +29,7 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.sql.DataSource;
 
-import static io.github.mfvanek.postgres.example.HikariDataSourceProvider.getDataSource;
+import static io.github.mfvanek.postgres.hikari.HikariDataSourceProvider.getDataSource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(

@@ -1,11 +1,17 @@
+plugins {
+    id("java-experiments.java-conventions")
+    id("java-experiments.pitest")
+}
+
 description = "Console application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
-    implementation(libs.postgresql)
+    implementation(project(":db-commons"))
     implementation(libs.hikaricp)
     implementation("io.github.mfvanek:pg-index-health-testing")
     implementation(libs.logback.classic)
-    implementation(libs.slf4j.api)
+
+    runtimeOnly(libs.postgresql)
 
     testImplementation("org.testcontainers:postgresql")
 }
