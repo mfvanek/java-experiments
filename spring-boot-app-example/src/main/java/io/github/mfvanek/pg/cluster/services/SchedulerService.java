@@ -23,7 +23,7 @@ public class SchedulerService {
             final int total = employeeService.getAll().size();
             log.info("Iteration {}. Total employees amount {}", counter.incrementAndGet(), total);
         } catch (Exception e) {
-            log.warn("Iteration {}. Failed due to {}", counter.incrementAndGet(), e.getMessage());
+            log.warn("Iteration {}. Failed due to", counter.incrementAndGet(), e);
         }
     }
 }

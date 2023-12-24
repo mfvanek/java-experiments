@@ -36,7 +36,6 @@ public class Employee extends BaseEntity {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @NotNull
     @Min(1)
     @Max(8)
     @Column(name = "hours_per_day", nullable = false)

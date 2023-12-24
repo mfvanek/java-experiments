@@ -1,8 +1,11 @@
+import net.ltgt.gradle.errorprone.errorprone
+
 plugins {
     id("java")
     id("jacoco")
     id("org.gradle.test-retry")
     id("io.freefair.lombok")
+    id("net.ltgt.errorprone")
 }
 
 val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
@@ -21,6 +24,9 @@ dependencies {
     testImplementation("org.mockito:mockito-core")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+
+    errorprone("com.google.errorprone:error_prone_core:2.24.0")
+    errorprone("jp.skypencil.errorprone.slf4j:errorprone-slf4j:0.1.21")
 }
 
 java {
@@ -36,6 +42,10 @@ jacoco {
 tasks {
     withType<JavaCompile>().configureEach {
         options.compilerArgs.add("-parameters")
+        options.errorprone {
+            disableWarningsInGeneratedCode.set(true)
+            disable("Slf4jLoggerShouldBeNonStatic")
+        }
     }
 
     test {
