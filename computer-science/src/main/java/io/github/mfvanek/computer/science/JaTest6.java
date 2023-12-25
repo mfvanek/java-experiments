@@ -43,8 +43,8 @@ public class JaTest6 {
 
                 toOutput(output, files.peekFirst());
             }
-        } catch (Exception e) {
-            log.error(e.getMessage(), e);
+        } catch (IOException e) {
+            log.error("IO error occurred", e);
         }
     }
 

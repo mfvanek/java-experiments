@@ -55,11 +55,11 @@ public class PostgresClusterDemo {
                     try (ResultSet resultSet = statement.getResultSet()) {
                         resultSet.next();
                         String pgVersion = resultSet.getString(1);
-                        log.info("{} {}", counter.incrementAndGet(), pgVersion);
+                        log.info("Counter {} {}", counter.incrementAndGet(), pgVersion);
                     }
                     TimeUnit.MILLISECONDS.sleep(500L);
                 } catch (SQLException e) {
-                    log.warn(e.getMessage());
+                    log.warn("SQL error", e);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
