@@ -32,7 +32,7 @@ dependencyManagement {
     imports {
         val junitVersion = libs.versions.junit.get()
         mavenBom("org.junit:junit-bom:$junitVersion")
-        mavenBom("org.mockito:mockito-bom:5.7.0")
+        mavenBom("org.mockito:mockito-bom:5.8.0")
     }
 }
 
