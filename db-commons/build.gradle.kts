@@ -4,6 +4,7 @@ plugins {
 }
 
 dependencies {
+    implementation(platform(project(":internal-bom")))
     implementation(libs.postgresql)
     implementation(libs.hikaricp)
     implementation(libs.slf4j.api)
