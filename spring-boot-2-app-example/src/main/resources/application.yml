@@ -1,0 +1,39 @@
+spring:
+    main.banner-mode: off
+    application:
+        name: spring-boot-2-bom-example
+
+server:
+    port: 8080
+    servlet:
+        context-path: /api
+    tomcat:
+        threads:
+            max: 10
+            min-spare: 5 # actuator port uses the same configuration
+    shutdown: graceful
+
+management:
+    server:
+        port: 8090
+    endpoints:
+        enabled-by-default: false
+        web:
+            exposure.include: health,info
+    endpoint:
+        health:
+            enabled: true
+            probes.enabled: true
+            group:
+                readiness:
+                    include: readinessState
+                    additional-path: server:/readyz # In order to collect probes from application main port
+        info:
+            enabled: true
+    info:
+        env.enabled: true
+    health:
+        livenessstate:
+            enabled: true
+        readinessstate:
+            enabled: true

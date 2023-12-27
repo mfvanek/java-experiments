@@ -1,6 +1,6 @@
 plugins {
     id("java-platform")
-    id("maven-publish")
+    id("java-experiments.bom-publish")
 }
 
 description = "Example of BOM for internal usage"
@@ -26,13 +26,5 @@ dependencies {
         api("javax.annotation:javax.annotation-api:1.3.2")
         api("org.threeten:threeten-extra:1.7.2")
         api("io.netty:netty-all:4.1.104.Final")
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("mavenBOM") {
-            from(components["javaPlatform"])
-        }
     }
 }
