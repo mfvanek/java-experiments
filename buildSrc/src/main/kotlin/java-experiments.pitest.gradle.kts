@@ -10,7 +10,7 @@ dependencies {
 }
 
 pitest {
-    verbosity = "VERBOSE"//""DEFAULT"
+    verbosity = "DEFAULT"
     junit5PluginVersion = "1.2.1"
     pitestVersion = "1.15.3"
     threads = 4

@@ -1,13 +1,13 @@
 plugins {
     id("java-experiments.java-conventions")
 	id("org.springframework.boot") version "3.2.1"
-	id("io.spring.dependency-management") version "1.1.4"
     id("com.google.osdetector") version "1.7.3"
 }
 
 description = "Spring Boot application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.2.1"))
     implementation(platform(project(":internal-bom")))
 
     implementation(project(":db-commons"))
