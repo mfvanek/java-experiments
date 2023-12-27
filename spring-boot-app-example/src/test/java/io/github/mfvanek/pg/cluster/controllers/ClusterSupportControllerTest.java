@@ -15,7 +15,7 @@ class ClusterSupportControllerTest extends BaseTest {
     @Test
     void failoverCanBePerformedOnlyOnce() {
         final WebTestClient client = webTestClient.mutate()
-                .responseTimeout(Duration.ofSeconds(300L))
+                .responseTimeout(Duration.ofMinutes(5L))
                 .build();
 
         final Boolean firstResult = client.post()

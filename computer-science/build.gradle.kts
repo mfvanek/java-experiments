@@ -6,6 +6,8 @@ plugins {
 description = "Some stuff"
 
 dependencies {
-    implementation(libs.logback.classic)
-    implementation(libs.slf4j.api)
+    implementation(platform(project(":internal-bom")))
+
+    implementation("ch.qos.logback:logback-classic")
+    implementation("org.slf4j:slf4j-api")
 }

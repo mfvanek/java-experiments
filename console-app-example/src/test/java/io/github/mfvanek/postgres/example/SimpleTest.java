@@ -18,6 +18,8 @@ import java.sql.Statement;
 import java.util.Collections;
 import javax.sql.DataSource;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class SimpleTest {
 
     @Test
@@ -34,7 +36,7 @@ class SimpleTest {
             try (HikariDataSource dataSource = getDataSource(postgres);
                     ResultSet resultSet = performQuery(dataSource, "SELECT 1")) {
                 int resultSetInt = resultSet.getInt(1);
-                Assertions.assertEquals(1, resultSetInt);
+                assertThat(resultSetInt).isEqualTo(1);
             }
         }
     }
