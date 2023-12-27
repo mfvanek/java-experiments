@@ -30,6 +30,11 @@ dependencies {
                 because("SLF4J: No SLF4J providers were found.")
             }
         }
-        api("org.yaml:snakeyaml:1.33")
+        api("org.yaml:snakeyaml") {
+            version {
+                strictly("1.33")
+                because("org.yaml:snakeyaml:1.30 -> 2.0 (c)")
+            }
+        }
     }
 }
