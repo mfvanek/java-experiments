@@ -8,20 +8,11 @@ plugins {
     id("net.ltgt.errorprone")
 }
 
-val versionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
-
 dependencies {
-    implementation("com.google.code.findbugs:jsr305:3.0.2")
-    implementation(platform("org.testcontainers:testcontainers-bom:1.19.3"))
-    implementation(platform("io.github.mfvanek:pg-index-health-bom:0.10.2"))
+    implementation("com.google.code.findbugs:jsr305")
 
-    testImplementation("org.assertj:assertj-core:3.24.2")
-    versionCatalog.findLibrary("junit-bom").ifPresent {
-        testImplementation(platform(it))
-    }
+    testImplementation("org.assertj:assertj-core")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testImplementation(platform("org.mockito:mockito-bom:5.7.0"))
-    testImplementation("org.mockito:mockito-core")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 

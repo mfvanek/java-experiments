@@ -5,8 +5,12 @@ plugins {
     id("info.solidsoft.pitest")
 }
 
+dependencies {
+    testImplementation("org.junit.platform:junit-platform-launcher")
+}
+
 pitest {
-    verbosity = "DEFAULT"
+    verbosity = "VERBOSE"//""DEFAULT"
     junit5PluginVersion = "1.2.1"
     pitestVersion = "1.15.3"
     threads = 4

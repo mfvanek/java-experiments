@@ -6,12 +6,14 @@ plugins {
 description = "Console application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
-    implementation(project(":db-commons"))
-    implementation(libs.hikaricp)
-    implementation("io.github.mfvanek:pg-index-health-testing")
-    implementation(libs.logback.classic)
+    implementation(platform(project(":internal-bom")))
 
-    runtimeOnly(libs.postgresql)
+    implementation(project(":db-commons"))
+    implementation("com.zaxxer:HikariCP")
+    implementation("io.github.mfvanek:pg-index-health-testing")
+    implementation("ch.qos.logback:logback-classic")
+
+    runtimeOnly("org.postgresql:postgresql")
 
     testImplementation("org.testcontainers:postgresql")
 }

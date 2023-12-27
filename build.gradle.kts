@@ -13,7 +13,7 @@ description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.1.0"
+    version = "0.1.1"
 
     repositories {
         mavenLocal()
@@ -23,7 +23,7 @@ allprojects {
 
 dependencies {
     subprojects.forEach {
-        if (it.name != "spring-boot-app-example") {
+        if (it.name != "spring-boot-app-example" && it.name != "internal-bom") {
             jacocoAggregation(it)
         }
     }
