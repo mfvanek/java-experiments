@@ -3,6 +3,10 @@ Gradle multi-module project for experiments with Java
 
 [![Java CI](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml/badge.svg)](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml)
 
+## Modules
+* [Spring Boot 2 app with custom BOM](spring-boot-2-app-example%2FREADME.md)
+* [Spring Boot 3 app with PostgreSQL cluster](spring-boot-app-example%2FREADME.md)
+
 ## Useful Java links
 ### How to tune GC and performance
 * [Garbage Collection Tuning Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html)

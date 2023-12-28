@@ -23,7 +23,8 @@ allprojects {
 
 dependencies {
     subprojects.forEach {
-        if (it.name != "spring-boot-app-example" && it.name != "internal-bom") {
+        if (!it.name.startsWith("spring-boot-") &&
+            !it.name.endsWith("-bom")) {
             jacocoAggregation(it)
         }
     }
