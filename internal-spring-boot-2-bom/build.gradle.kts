@@ -15,7 +15,7 @@ dependencies {
     api(platform("org.springframework.boot:spring-boot-dependencies:2.7.18"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.9"))
     api(platform("org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.1.4"))
-    api(platform("org.springframework.security:spring-security-bom:5.8.9"))
+    api(platform("org.springframework.security:spring-security-bom:6.2.1"))
 
     constraints {
         api("ch.qos.logback:logback-classic") {
