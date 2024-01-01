@@ -12,7 +12,7 @@ javaPlatform {
 dependencies {
     api(platform(project(":internal-bom")))
     api(platform("org.springdoc:springdoc-openapi:1.7.0"))
-    api(platform("org.springframework.boot:spring-boot-dependencies:2.7.18"))
+    api(platform("org.springframework.boot:spring-boot-dependencies:3.2.1"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.9"))
     api(platform("org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.1.4"))
     api(platform("org.springframework.security:spring-security-bom:5.8.9"))
