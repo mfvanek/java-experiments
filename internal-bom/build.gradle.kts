@@ -21,7 +21,7 @@ dependencies {
         api("com.zaxxer:HikariCP:5.1.0")
         api("ch.qos.logback:logback-classic:1.4.14")
         api("org.slf4j:slf4j-api:2.0.9")
-        api("org.assertj:assertj-core:3.24.2")
+        api("org.assertj:assertj-core:3.25.0")
         api("com.h2database:h2:2.2.224")
         api("javax.annotation:javax.annotation-api:1.3.2")
         api("org.threeten:threeten-extra:1.7.2")
