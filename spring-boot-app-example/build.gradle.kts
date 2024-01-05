@@ -7,8 +7,7 @@ plugins {
 description = "Spring Boot application with PostgreSQL cluster via Testcontainers"
 
 dependencies {
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.2.1"))
-    implementation(platform(project(":internal-bom")))
+    implementation(platform(project(":internal-spring-boot-3-bom")))
 
     implementation(project(":db-commons"))
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
