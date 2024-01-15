@@ -13,7 +13,7 @@ dependencies {
     api(platform("org.junit:junit-bom:5.10.1"))
     api(platform("org.testcontainers:testcontainers-bom:1.19.3"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.10.2"))
-    api(platform("org.mockito:mockito-bom:5.8.0"))
+    api(platform("org.mockito:mockito-bom:5.9.0"))
 
     constraints {
         api("com.google.code.findbugs:jsr305:3.0.2")
