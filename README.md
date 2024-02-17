@@ -93,3 +93,6 @@ Gradle multi-module project for experiments with Java
 ### Load Testing
 #### Gatling
 * [Write Gatling Performance Tests with Java](https://rieckpil.de/write-gatling-performance-tests-with-java/)
+
+##### RUS
+* [Using Gatling. Introduction](https://habr.com/ru/companies/tinkoff/articles/655341/)
