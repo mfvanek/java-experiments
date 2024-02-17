@@ -41,6 +41,14 @@ Gradle multi-module project for experiments with Java
 * [Understanding the Java Class Loader Starting from Java 9](https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/) [eng]
 * [How does the Java ClassLoader system actually work?](https://habr.com/ru/articles/748758/) [rus]
 
+### CompletableFuture
+#### RUS
+* [CompletableFuture. Deep dive](https://habr.com/ru/articles/784144/)
+* [How to make CompletableFuture even faster by Sergey Kuksenko](https://www.youtube.com/watch?v=W7iK74YA5NM)
+
+### Java Certification
+* [11 Crazy Things I Didn't Know You Could Do With Java Until I Got My Java 11 Certification](https://www.youtube.com/watch?v=J3dqRwNQONE)
+
 ### Spring Boot
 #### RUS
 * [Boot yourself, Spring is coming by Evgeny Borisov](https://www.youtube.com/watch?v=yy43NOreJG4)
@@ -85,3 +93,6 @@ Gradle multi-module project for experiments with Java
 ### Load Testing
 #### Gatling
 * [Write Gatling Performance Tests with Java](https://rieckpil.de/write-gatling-performance-tests-with-java/)
+
+##### RUS
+* [Using Gatling. Introduction](https://habr.com/ru/companies/tinkoff/articles/655341/)
