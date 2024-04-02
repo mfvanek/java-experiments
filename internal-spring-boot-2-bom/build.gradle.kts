@@ -11,7 +11,7 @@ javaPlatform {
 
 dependencies {
     api(platform(project(":internal-bom")))
-    api(platform("org.springdoc:springdoc-openapi:1.7.0"))
+    api(platform("org.springdoc:springdoc-openapi:2.5.0"))
     val spring2Version = "2.7.18"
     api(platform("org.springframework.boot:spring-boot-dependencies:$spring2Version"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.9"))
