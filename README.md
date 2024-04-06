@@ -96,3 +96,10 @@ Gradle multi-module project for experiments with Java
 
 ##### RUS
 * [Using Gatling. Introduction](https://habr.com/ru/companies/tinkoff/articles/655341/)
+
+### Timeouts
+* [eng](https://engineering.zalando.com/posts/2023/07/all-you-need-to-know-about-timeouts.html)
+* [rus](https://habr.com/ru/articles/755750/)
+
+## Useful Kotlin links
+* [Public API challenges in Kotlin](https://jakewharton.com/public-api-challenges-in-kotlin/)
