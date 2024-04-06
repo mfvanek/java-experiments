@@ -11,7 +11,7 @@ javaPlatform {
 
 dependencies {
     api(platform(project(":internal-bom")))
-    val spring3Version = "3.2.2"
+    val spring3Version = "3.2.4"
     api(platform("org.springframework.boot:spring-boot-dependencies:$spring3Version"))
 
     constraints {

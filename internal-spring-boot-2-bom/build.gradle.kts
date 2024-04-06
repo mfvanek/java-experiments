@@ -11,12 +11,12 @@ javaPlatform {
 
 dependencies {
     api(platform(project(":internal-bom")))
-    api(platform("org.springdoc:springdoc-openapi:1.7.0"))
+    api(platform("org.springdoc:springdoc-openapi:1.8.0"))
     val spring2Version = "2.7.18"
     api(platform("org.springframework.boot:spring-boot-dependencies:$spring2Version"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.9"))
     api(platform("org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.1.4"))
-    api(platform("org.springframework.security:spring-security-bom:5.8.9"))
+    api(platform("org.springframework.security:spring-security-bom:5.8.11"))
 
     constraints {
         api("org.springframework.boot:spring-boot-gradle-plugin:$spring2Version")
