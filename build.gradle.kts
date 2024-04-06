@@ -48,7 +48,7 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 tasks {
     wrapper {
-        gradleVersion = "8.5"
+        gradleVersion = "8.7"
     }
     jar {
         // To avoid creation of jar in the root build folder
