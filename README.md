@@ -41,6 +41,9 @@ Gradle multi-module project for experiments with Java
 * [Understanding the Java Class Loader Starting from Java 9](https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/) [eng]
 * [How does the Java ClassLoader system actually work?](https://habr.com/ru/articles/748758/) [rus]
 
+### Java Modules (JPMS)
+* [Java Modules in Real Life](https://www.youtube.com/watch?v=UqnwQp1uHuY)
+
 ### CompletableFuture
 #### RUS
 * [CompletableFuture. Deep dive](https://habr.com/ru/articles/784144/)
@@ -100,6 +103,11 @@ Gradle multi-module project for experiments with Java
 ### Timeouts
 * [eng](https://engineering.zalando.com/posts/2023/07/all-you-need-to-know-about-timeouts.html)
 * [rus](https://habr.com/ru/articles/755750/)
+
+### GraphQL
+
+#### RUS
+* [From REST to GraphQL: a 20-minute adventure](https://www.youtube.com/watch?v=90Ul1zDNMYA)
 
 ## Useful Kotlin links
 * [Public API challenges in Kotlin](https://jakewharton.com/public-api-challenges-in-kotlin/)
