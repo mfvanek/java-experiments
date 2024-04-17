@@ -21,7 +21,7 @@ dependencies {
         api("org.postgresql:postgresql:42.7.3")
         api("com.zaxxer:HikariCP:5.1.0")
         api("ch.qos.logback:logback-classic:1.5.5")
-        api("org.slf4j:slf4j-api:2.0.12")
+        api("org.slf4j:slf4j-api:2.0.13")
         api("com.h2database:h2:2.2.224")
         api("javax.annotation:javax.annotation-api:1.3.2")
         api("org.threeten:threeten-extra:1.8.0")
