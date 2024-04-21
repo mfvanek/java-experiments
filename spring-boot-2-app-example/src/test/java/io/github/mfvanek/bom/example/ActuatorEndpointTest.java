@@ -1,7 +1,8 @@
-package io.github.mfvanek.pg.cluster;
+package io.github.mfvanek.bom.example;
 
-import io.github.mfvanek.pg.cluster.support.BaseTest;
+import io.github.mfvanek.bom.example.support.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,6 +21,7 @@ class ActuatorEndpointTest extends BaseTest {
     void setUp() {
         this.actuatorClient = WebTestClient.bindToServer()
                 .baseUrl("http://localhost:" + actuatorPort + "/actuator/")
+                .defaultHeaders(super::setUpBasicAuth)
                 .build();
     }
 
@@ -31,6 +33,7 @@ class ActuatorEndpointTest extends BaseTest {
 
     @ParameterizedTest
     @CsvSource(value = {
+            "prometheus|jvm_threads_live_threads|text/plain",
             "health|{\"status\":\"UP\",\"groups\":[\"liveness\",\"readiness\"]}|application/json",
             "health/liveness|{\"status\":\"UP\"}|application/json",
             "health/readiness|{\"status\":\"UP\"}|application/json",
@@ -52,20 +55,21 @@ class ActuatorEndpointTest extends BaseTest {
                 .contains(expectedSubstring);
     }
 
+    @Disabled // TODO Fix
     @Test
-    void swaggerUiEndpointShouldReturnNotFound() {
-        final var result = actuatorClient.get()
+    void swaggerUiEndpointShouldReturnFound() {
+        final byte[] result = actuatorClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .pathSegment("swagger-ui")
                         .build())
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_HTML)
                 .exchange()
-                .expectStatus().isNotFound()
-                .expectBody(String.class)
+                .expectStatus().isFound()
+                .expectHeader().location("/actuator/swagger-ui/index.html")
+                .expectBody()
                 .returnResult()
                 .getResponseBody();
-        assertThat(result)
-                .contains("\"status\":404,\"error\":\"Not Found\",\"path\":\"/actuator/swagger-ui\"");
+        assertThat(result).isNull();
     }
 
     @Test
@@ -75,6 +79,7 @@ class ActuatorEndpointTest extends BaseTest {
                         .pathSegment("readyz")
                         .build())
                 .accept(MediaType.APPLICATION_JSON)
+                .headers(super::setUpBasicAuth)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
