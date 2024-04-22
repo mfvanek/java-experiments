@@ -38,7 +38,7 @@ management:
     endpoints:
         enabled-by-default: false
         web:
-            exposure.include: health,info
+            exposure.include: health,info,prometheus
     endpoint:
         health:
             enabled: true
@@ -50,6 +50,8 @@ management:
                     # show-components: always
         info:
             enabled: true
+        prometheus:
+            enabled: true
     info:
         env.enabled: true
     health:
@@ -57,3 +59,17 @@ management:
             enabled: true
         readinessstate:
             enabled: true
+    metrics:
+        distribution:
+            percentiles-histogram:
+                http.server.requests: true
+            minimum-expected-value:
+                http.server.requests: 10ms
+            maximum-expected-value:
+                http.server.requests: 10s
+            slo:
+                http.server.requests: 1s
+    prometheus:
+        metrics:
+            export:
+                enabled: true

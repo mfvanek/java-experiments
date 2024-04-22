@@ -27,12 +27,16 @@ public abstract class BaseTest {
 
     @Autowired
     protected JdbcTemplate jdbcTemplate;
+
     @LocalServerPort
     protected int port;
+
     @LocalManagementPort
     protected int actuatorPort;
+
     @Autowired
     protected Clock clock;
+
     @Autowired
     protected WebTestClient webTestClient;
 
