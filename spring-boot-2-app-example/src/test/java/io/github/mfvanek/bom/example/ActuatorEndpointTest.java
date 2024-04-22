@@ -2,7 +2,6 @@ package io.github.mfvanek.bom.example;
 
 import io.github.mfvanek.bom.example.support.BaseTest;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -55,7 +54,6 @@ class ActuatorEndpointTest extends BaseTest {
                 .contains(expectedSubstring);
     }
 
-    @Disabled // TODO Fix
     @Test
     void swaggerUiEndpointShouldReturnFound() {
         final byte[] result = actuatorClient.get()
