@@ -24,7 +24,7 @@ public class DatabaseConfig {
                 .withUsername("test_user")
                 .withPassword("test_password")
                 .withDatabaseName("test_database")
-                .withPostgresVersion("15.2")
+                .withPostgresVersion("16.2")
                 .build();
     }
 
