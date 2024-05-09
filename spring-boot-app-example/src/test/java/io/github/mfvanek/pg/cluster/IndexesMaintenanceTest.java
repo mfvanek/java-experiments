@@ -1,13 +1,17 @@
 package io.github.mfvanek.pg.cluster;
 
+import io.github.mfvanek.pg.checks.host.BtreeIndexesOnArrayColumnsCheckOnHost;
 import io.github.mfvanek.pg.checks.host.ColumnsWithJsonTypeCheckOnHost;
 import io.github.mfvanek.pg.checks.host.ColumnsWithSerialTypesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.ColumnsWithoutDescriptionCheckOnHost;
 import io.github.mfvanek.pg.checks.host.DuplicatedIndexesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.ForeignKeysNotCoveredWithIndexCheckOnHost;
+import io.github.mfvanek.pg.checks.host.FunctionsWithoutDescriptionCheckOnHost;
+import io.github.mfvanek.pg.checks.host.IndexesWithBooleanCheckOnHost;
 import io.github.mfvanek.pg.checks.host.IndexesWithNullValuesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.IntersectedIndexesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.InvalidIndexesCheckOnHost;
+import io.github.mfvanek.pg.checks.host.NotValidConstraintsCheckOnHost;
 import io.github.mfvanek.pg.checks.host.TablesWithoutDescriptionCheckOnHost;
 import io.github.mfvanek.pg.checks.host.TablesWithoutPrimaryKeyCheckOnHost;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
@@ -61,6 +65,14 @@ class IndexesMaintenanceTest {
     private ColumnsWithJsonTypeCheckOnHost columnsWithJsonTypeCheck;
     @Autowired
     private ColumnsWithSerialTypesCheckOnHost columnsWithSerialTypesCheck;
+    @Autowired
+    private FunctionsWithoutDescriptionCheckOnHost functionsWithoutDescriptionCheck;
+    @Autowired
+    private IndexesWithBooleanCheckOnHost indexesWithBooleanCheck;
+    @Autowired
+    private NotValidConstraintsCheckOnHost notValidConstraintsCheck;
+    @Autowired
+    private BtreeIndexesOnArrayColumnsCheckOnHost btreeIndexesOnArrayColumnsCheck;
 
     @Test
     @DisplayName("Always check PostgreSQL version in your tests")
@@ -127,6 +139,30 @@ class IndexesMaintenanceTest {
     @Test
     void getColumnsWithSerialTypesShouldReturnNothing() {
         assertThat(columnsWithSerialTypesCheck.check())
+                .isEmpty();
+    }
+
+    @Test
+    void getFunctionsWithoutDescriptionShouldReturnNothing() {
+        assertThat(functionsWithoutDescriptionCheck.check())
+                .isEmpty();
+    }
+
+    @Test
+    void indexesWithBooleanShouldReturnNothing() {
+        assertThat(indexesWithBooleanCheck.check())
+                .isEmpty();
+    }
+
+    @Test
+    void notValidConstraintsShouldReturnNothing() {
+        assertThat(notValidConstraintsCheck.check())
+                .isEmpty();
+    }
+
+    @Test
+    void btreeIndexesOnArrayColumnsShouldReturnNothing() {
+        assertThat(btreeIndexesOnArrayColumnsCheck.check())
                 .isEmpty();
     }
 
