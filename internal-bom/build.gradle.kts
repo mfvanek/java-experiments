@@ -14,7 +14,7 @@ dependencies {
     api(platform("org.testcontainers:testcontainers-bom:1.19.8"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.11.1"))
     api(platform("org.mockito:mockito-bom:5.12.0"))
-    api(platform("org.assertj:assertj-bom:3.25.3"))
+    api(platform("org.assertj:assertj-bom:3.26.0"))
 
     constraints {
         api("com.google.code.findbugs:jsr305:3.0.2")
