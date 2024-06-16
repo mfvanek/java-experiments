@@ -12,6 +12,7 @@ import io.github.mfvanek.pg.checks.host.IndexesWithNullValuesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.IntersectedIndexesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.InvalidIndexesCheckOnHost;
 import io.github.mfvanek.pg.checks.host.NotValidConstraintsCheckOnHost;
+import io.github.mfvanek.pg.checks.host.SequenceOverflowCheckOnHost;
 import io.github.mfvanek.pg.checks.host.TablesWithoutDescriptionCheckOnHost;
 import io.github.mfvanek.pg.checks.host.TablesWithoutPrimaryKeyCheckOnHost;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
@@ -73,6 +74,8 @@ class IndexesMaintenanceTest {
     private NotValidConstraintsCheckOnHost notValidConstraintsCheck;
     @Autowired
     private BtreeIndexesOnArrayColumnsCheckOnHost btreeIndexesOnArrayColumnsCheck;
+    @Autowired
+    private SequenceOverflowCheckOnHost sequenceOverflowCheck;
 
     @Test
     @DisplayName("Always check PostgreSQL version in your tests")
@@ -163,6 +166,12 @@ class IndexesMaintenanceTest {
     @Test
     void btreeIndexesOnArrayColumnsShouldReturnNothing() {
         assertThat(btreeIndexesOnArrayColumnsCheck.check())
+                .isEmpty();
+    }
+
+    @Test
+    void sequenceOverflowCheckShouldReturnNothing() {
+        assertThat(sequenceOverflowCheck.check())
                 .isEmpty();
     }
 
