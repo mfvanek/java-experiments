@@ -48,15 +48,18 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 tasks {
     wrapper {
-        gradleVersion = "8.7"
+        gradleVersion = "8.8"
     }
+
     jar {
         // To avoid creation of jar in the root build folder
         isEnabled = false
     }
+
     check {
         dependsOn(named<JacocoReport>("testCodeCoverageReport"))
     }
+
     build {
         dependsOn("pitestReportAggregate")
     }
