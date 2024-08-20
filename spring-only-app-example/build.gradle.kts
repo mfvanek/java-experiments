@@ -5,7 +5,7 @@ plugins {
 description = "Spring only application with embedded database"
 
 dependencies {
-    implementation(platform("org.springframework:spring-framework-bom:6.1.10"))
+    implementation(platform("org.springframework:spring-framework-bom:6.1.12"))
     implementation(platform(project(":internal-bom")))
 
     implementation("org.springframework:spring-context")
