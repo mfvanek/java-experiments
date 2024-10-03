@@ -37,6 +37,9 @@ Gradle multi-module project for experiments with Java
 * [Method References in Java](https://www.baeldung.com/java-method-references)
 * [Type Erasure in Java Explained](https://www.baeldung.com/java-type-erasure)
 
+#### RUS
+* [Владимир Ярославский — Удивительная история развития сортировки в JDK](https://www.youtube.com/watch?v=bzAHm79aHbA)
+
 #### ClassLoaders
 * [Understanding the Java Class Loader Starting from Java 9](https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/) [eng]
 * [How does the Java ClassLoader system actually work?](https://habr.com/ru/articles/748758/) [rus]
@@ -52,6 +55,10 @@ Gradle multi-module project for experiments with Java
 ### Java Certification
 * [11 Crazy Things I Didn't Know You Could Do With Java Until I Got My Java 11 Certification](https://www.youtube.com/watch?v=J3dqRwNQONE)
 
+### JaCoCo
+* [Java, Code Coverage & Their Best Friend: Bytecode by Evgeny Mandrikov](https://www.youtube.com/watch?v=nhxcUUthnk8)
+* [Evgeny Mandrikov, Marc Hoffmann — Java Code Coverage mechanics](https://www.youtube.com/watch?v=Knb_qpp3dsQ)
+
 ### Spring Boot
 #### RUS
 * [Boot yourself, Spring is coming by Evgeny Borisov](https://www.youtube.com/watch?v=yy43NOreJG4)
@@ -66,12 +73,21 @@ Gradle multi-module project for experiments with Java
 * [A Guide to Maven Artifact Classifiers](https://www.baeldung.com/maven-artifact-classifiers)
 * [What I Wish I Knew About Maven Years Ago](https://www.youtube.com/watch?v=F3UA1Xt3jWE)
 
+### Gradle
+
+#### RUS
+* [Кирилл Толкачёв — Релиз менеджмент с помощью Gradle](https://www.youtube.com/watch?v=l6ZfFFomEhk)
+* [Иван Осипов — Kotlin DSL: теория и практика](https://www.youtube.com/watch?v=q_UM1EY2S5g)
+
 ### People management
 * [The Art of 1:1 Meetings — 6 Tips For Better Feedback](https://betterprogramming.pub/the-art-of-1-1-meetings-6-tips-for-better-feedback-8b80eb59b210)
 * [Teamlead Roadmap RUS](https://tlroadmap.io/)
 
 ### PostgreSQL
 * [Migrating a production database without any downtime](https://teamplify.com/blog/zero-downtime-DB-migrations/)
+* [Optimizing Postgres for write heavy workloads ft. Checkpoint and WAL configs](https://www.youtube.com/watch?v=t8rAOgDdH1U)
+* [Tuning PostgreSQL for High Write Workloads](https://www.youtube.com/watch?v=xrMbzHdPLKM)
+* [Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak](https://www.youtube.com/watch?v=exqfB1WaqIw)
 
 #### RUS
 * [PostgreSQL by Vladimir Borodin](https://www.youtube.com/watch?v=ejLzS6rVpkk)
@@ -79,6 +95,8 @@ Gradle multi-module project for experiments with Java
 * [Indexes in PostgreSQL. How to understand what to create](https://www.youtube.com/watch?v=ju9F8OvnL4E)
 * [Expensive DELETE by Nikolay Samokhvalov](https://habr.com/ru/articles/523536/)
 * [Changing the schema of PostgreSQL tables without long locks](https://habr.com/ru/companies/yandex/articles/435880/)
+* [Дмитрий Фатов — Разгоняем вставку больших объемов данных Spring + PostgreSQL](https://www.youtube.com/watch?v=lpFDv50xn30)
+* [Сергей Синдеев, Группа «Рексофт» — Hibernate, OOM и ооочень длинные запросы](https://www.youtube.com/watch?v=KUmzw-gAhCY)
 
 #### Column migration from int to bigint
 * [Column migration from INT to BIGINT in PostgreSQL](https://zemanta.github.io/2021/08/25/column-migration-from-int-to-bigint-in-postgresql/) [eng]
@@ -108,6 +126,19 @@ Gradle multi-module project for experiments with Java
 
 #### RUS
 * [From REST to GraphQL: a 20-minute adventure](https://www.youtube.com/watch?v=90Ul1zDNMYA)
+
+### Java/Spring Platform development
+* [Building Spring Boot based modular libraries for 120 teams our findings](https://www.youtube.com/watch?v=7ji6DQ6COx0)
+* [Delving Into Spring Boot Netflix: Netflix's Application Framework](https://www.youtube.com/watch?v=by-G0WX-LHA)
+* [The Magic of Platforms](https://platformengineering.org/talks-library/the-magic-of-platforms)
+
+### IntelliJ IDEA
+* [IntelliJ IDEA Tips & Tricks by Anton Arhipov](https://www.youtube.com/watch?v=FD8FtyX-nbQ)
+* [Debugging applications with IntelliJ IDEA by Anton Arhipov](https://www.youtube.com/watch?v=4rb5CxjPhgU)
+
+#### RUS
+* [Антон Архипов — Эффективная работа с IDE(A)](https://www.youtube.com/watch?v=_rj7dx6c5R8)
+* [Антон Архипов - Анализ и отладка приложений в IntelliJ IDEA](https://www.youtube.com/watch?v=p6nXKii-GEo)
 
 ## Useful Kotlin links
 * [Public API challenges in Kotlin](https://jakewharton.com/public-api-challenges-in-kotlin/)
