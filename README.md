@@ -109,5 +109,10 @@ Gradle multi-module project for experiments with Java
 #### RUS
 * [From REST to GraphQL: a 20-minute adventure](https://www.youtube.com/watch?v=90Ul1zDNMYA)
 
+### Java/Spring Platform development
+* [Building Spring Boot based modular libraries for 120 teams our findings](https://www.youtube.com/watch?v=7ji6DQ6COx0)
+* [Delving Into Spring Boot Netflix: Netflix's Application Framework](https://www.youtube.com/watch?v=by-G0WX-LHA)
+* [The Magic of Platforms](https://platformengineering.org/talks-library/the-magic-of-platforms)
+
 ## Useful Kotlin links
 * [Public API challenges in Kotlin](https://jakewharton.com/public-api-challenges-in-kotlin/)
