@@ -17,7 +17,7 @@ class HikariDataSourceProviderTest {
     @Test
     void getDataSourceShouldSetDriverClassName() {
         try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-                DockerImageName.parse("postgres").withTag("14.5"))
+                DockerImageName.parse("postgres").withTag("16.4"))
                 .withTmpFs(Collections.singletonMap("/var/lib/postgresql/data", "rw"))
                 .withDatabaseName("test_db")
                 .withUsername("test_user")
