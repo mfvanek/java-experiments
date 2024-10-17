@@ -48,7 +48,7 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 tasks {
     wrapper {
-        gradleVersion = "8.8"
+        gradleVersion = "8.10.2"
     }
 
     jar {

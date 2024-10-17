@@ -21,7 +21,7 @@ public class PostgresClusterDemo {
                 .withUsername("test_user")
                 .withPassword("test_password")
                 .withDatabaseName("test_db")
-                .withPostgresVersion("16.2")
+                .withPostgresVersion("16.4")
                 .build()) {
             final var pgUrl = clusterWrapper.getCommonUrlToPrimary();
             log.info("pgUrl = {}", pgUrl);
