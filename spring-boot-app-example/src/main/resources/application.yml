@@ -15,6 +15,7 @@ spring:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
                 enable_lazy_load_no_trans: false
+            jakarta.persistence.query.timeout: 1000 # milliseconds
     main.banner-mode: off
     application:
         name: spring-boot-app-example
