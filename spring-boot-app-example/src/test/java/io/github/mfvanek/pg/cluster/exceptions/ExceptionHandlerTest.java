@@ -51,11 +51,10 @@ public class ExceptionHandlerTest {
         ResponseEntity<Object> response = exceptionHandler.handleValidationExceptions(ex);
 
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        
+
         Map<String, String> expectedErrors = new HashMap<>();
         expectedErrors.put("name", "must not be blank");
 
-        //assertEquals(HttpStatus.OK, response.getBody());
         assertEquals(expectedErrors, response.getBody());
     }
 
