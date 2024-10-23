@@ -26,11 +26,16 @@ class DemoApplicationTest extends BaseTest {
         assertThat(countDocumentsInCollection("users"))
                 .isZero();
 
-        userRepository.save(new User(new ObjectId(), "test_user", "test_user@example.org"))
+        final ObjectId id = ObjectId.get();
+        userRepository.save(new User(id, "test_user", "test_user@example.org"))
                 .block();
 
         assertThat(countDocumentsInCollection("users"))
                 .isOne();
+        assertThat(userRepository.findAll().collectList().block())
+                .hasSize(1)
+                .first()
+                .isEqualTo(new User(id, "test_user", "test_user@example.org"));
     }
 
     private long countDocumentsInCollection(final String collectionName) {
