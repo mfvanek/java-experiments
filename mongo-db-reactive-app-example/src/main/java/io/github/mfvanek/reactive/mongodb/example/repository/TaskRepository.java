@@ -1,10 +1,10 @@
 package io.github.mfvanek.reactive.mongodb.example.repository;
 
-import io.github.mfvanek.reactive.mongodb.example.model.User;
+import io.github.mfvanek.reactive.mongodb.example.model.Task;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends ReactiveMongoRepository<User, String> {
+public interface TaskRepository extends ReactiveMongoRepository<Task, String> {
 
 }
