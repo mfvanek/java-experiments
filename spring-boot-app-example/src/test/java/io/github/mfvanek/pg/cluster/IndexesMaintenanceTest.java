@@ -3,7 +3,9 @@ package io.github.mfvanek.pg.cluster;
 import io.github.mfvanek.pg.common.maintenance.DatabaseCheckOnHost;
 import io.github.mfvanek.pg.common.maintenance.Diagnostic;
 import io.github.mfvanek.pg.model.DbObject;
+import io.github.mfvanek.pg.model.table.Table;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
+import org.assertj.core.api.ListAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,7 @@ import javax.sql.DataSource;
 
 import static io.github.mfvanek.postgres.hikari.HikariDataSourceProvider.getDataSource;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.list;
 
 @SpringBootTest(
         classes = IndexesMaintenanceTest.CustomDatasourceConfiguration.class,
@@ -52,19 +55,22 @@ class IndexesMaintenanceTest {
         assertThat(checks)
                 .hasSameSizeAs(Diagnostic.values());
 
-        checks.forEach(check -> {
-            if (check.getDiagnostic() == Diagnostic.COLUMNS_WITHOUT_DESCRIPTION) {
-                assertThat(check.check())
-                        .hasSize(4);
-            } else if (check.getDiagnostic() == Diagnostic.TABLES_WITH_MISSING_INDEXES) {
-                assertThat(check.check())
-                        .hasSizeLessThanOrEqualTo(1); // TODO skip runtime checks after https://github.com/mfvanek/pg-index-health/issues/456
-            } else {
-                assertThat(check.check())
-                        .as(check.getDiagnostic().name())
-                        .isEmpty();
-            }
-        });
+        checks.stream()
+                .filter(DatabaseCheckOnHost::isStatic)
+                .forEach(check -> {
+                    final ListAssert<? extends DbObject> checkAssert = assertThat(check.check())
+                            .as(check.getDiagnostic().name());
+
+                    if (check.getDiagnostic() == Diagnostic.COLUMNS_WITHOUT_DESCRIPTION) {
+                        checkAssert.hasSize(4);
+                    } else if (check.getDiagnostic() == Diagnostic.TABLES_NOT_LINKED_TO_OTHERS) {
+                        checkAssert.hasSize(1)
+                                .asInstanceOf(list(Table.class))
+                                .containsExactly(Table.of("employees", 0L));
+                    } else {
+                        checkAssert.isEmpty();
+                    }
+                });
     }
 
     @TestConfiguration
