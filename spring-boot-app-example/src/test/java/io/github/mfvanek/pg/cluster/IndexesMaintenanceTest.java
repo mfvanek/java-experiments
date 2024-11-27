@@ -1,8 +1,8 @@
 package io.github.mfvanek.pg.cluster;
 
-import io.github.mfvanek.pg.common.maintenance.DatabaseCheckOnHost;
-import io.github.mfvanek.pg.common.maintenance.Diagnostic;
-import io.github.mfvanek.pg.model.DbObject;
+import io.github.mfvanek.pg.core.checks.common.DatabaseCheckOnHost;
+import io.github.mfvanek.pg.core.checks.common.Diagnostic;
+import io.github.mfvanek.pg.model.dbobject.DbObject;
 import io.github.mfvanek.pg.model.table.Table;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
 import org.assertj.core.api.ListAssert;

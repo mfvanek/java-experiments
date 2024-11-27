@@ -16,7 +16,7 @@ dependencies {
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 
-    errorprone("com.google.errorprone:error_prone_core:2.34.0")
+    errorprone("com.google.errorprone:error_prone_core:2.36.0")
     errorprone("jp.skypencil.errorprone.slf4j:errorprone-slf4j:0.1.28")
 }
 
@@ -33,6 +33,7 @@ jacoco {
 tasks {
     withType<JavaCompile>().configureEach {
         options.compilerArgs.add("-parameters")
+        options.compilerArgs.add("--should-stop=ifError=FLOW")
         options.errorprone {
             disableWarningsInGeneratedCode.set(true)
             disable("Slf4jLoggerShouldBeNonStatic")
