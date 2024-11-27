@@ -13,7 +13,7 @@ description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.1.2"
+    version = "0.2.0"
 
     repositories {
         mavenLocal()
@@ -48,7 +48,7 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 tasks {
     wrapper {
-        gradleVersion = "8.10.2"
+        gradleVersion = "8.11.1"
     }
 
     jar {
