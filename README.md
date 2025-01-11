@@ -8,6 +8,12 @@ Gradle multi-module project for experiments with Java
 * [Spring Boot 3 app with PostgreSQL cluster](spring-boot-app-example%2FREADME.md)
 
 ## Useful Java links
+
+### Open Source
+
+* [Open sourcing a library: how hard can that be? by Johan Hutting](https://www.youtube.com/watch?v=uR3rRvg9J5E)
+* [The Secret Life of Maven Central by Jamie Coleman](https://www.youtube.com/watch?v=0A53s8ktN0M)
+
 ### How to tune GC and performance
 * [Garbage Collection Tuning Guide](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html)
 * [Common misunderstanding of Metaspace and its sin on killing containers](https://masteranyfield.com/2021/05/12/common-misunderstanding-of-metaspace-and-its-sin-on-killing-containers/)
@@ -20,8 +26,12 @@ Gradle multi-module project for experiments with Java
 * [Configuring the memory of a JVM application in Kubernetes](https://habr.com/ru/companies/domclick/articles/691240/)
 
 ### Heap dumps
+
 #### RUS
-* [Analysis of complex cases OutOfMemoryError by Vladimir Sitnikov](https://www.youtube.com/watch?v=OE3wowy29mg)
+
+* [Владимир Ситников — Разбор сложных случаев OutOfMemoryError](https://www.youtube.com/watch?v=OE3wowy29mg)
+* [Владимир Плизга — Путеводитель по анализу памяти JVM-приложений](https://www.youtube.com/watch?v=fPns2O-cnYQ)
+* [Владимир Ситников — Анализ дампов памяти Java-приложений](https://www.youtube.com/watch?v=t_-WyfS9a7k)
 
 ### JVM internals
 * [Memory footprint of a Java process by Andrei Pangin](https://www.youtube.com/watch?v=c755fFv1Rnk)
@@ -48,25 +58,41 @@ Gradle multi-module project for experiments with Java
 * [Java Modules in Real Life](https://www.youtube.com/watch?v=UqnwQp1uHuY)
 
 ### CompletableFuture
+
 #### RUS
+
 * [CompletableFuture. Deep dive](https://habr.com/ru/articles/784144/)
 * [How to make CompletableFuture even faster by Sergey Kuksenko](https://www.youtube.com/watch?v=W7iK74YA5NM)
 
 ### Java Certification
+
 * [11 Crazy Things I Didn't Know You Could Do With Java Until I Got My Java 11 Certification](https://www.youtube.com/watch?v=J3dqRwNQONE)
 
 ### JaCoCo
+
 * [Java, Code Coverage & Their Best Friend: Bytecode by Evgeny Mandrikov](https://www.youtube.com/watch?v=nhxcUUthnk8)
 * [Evgeny Mandrikov, Marc Hoffmann — Java Code Coverage mechanics](https://www.youtube.com/watch?v=Knb_qpp3dsQ)
 
+### Logging
+
+* [Logging Best Practices - MDC, Ingestion and Scale](https://talktotheduck.dev/logging-best-practices-mdc-ingestion-and-scale)
+
 ### Spring Boot
+
 #### RUS
+
 * [Boot yourself, Spring is coming by Evgeny Borisov](https://www.youtube.com/watch?v=yy43NOreJG4)
 * [Spring Boot the Ripper by Evgeny Borisov](https://www.youtube.com/watch?v=zEdHFXr9D9Y)
 * [The Curse of Spring Test by Evgeny Borisov](https://www.youtube.com/watch?v=7mZqJShu_3c)
 
 ### JUnit 5
+
 * [JUnit 5 Conditional Test Execution with Annotations](https://www.baeldung.com/junit-5-conditional-test-execution)
+
+#### RUS
+
+* [Дмитрий Тучс — The art of JUnit extensions](https://www.youtube.com/watch?v=NFHdzKcU5OU)
+* [Дмитрий Тучс — The art of JUnit extensions 2](https://www.youtube.com/watch?v=EhqGk_l99uI)
 
 ### Maven
 * [Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
@@ -78,18 +104,26 @@ Gradle multi-module project for experiments with Java
 #### RUS
 * [Кирилл Толкачёв — Релиз менеджмент с помощью Gradle](https://www.youtube.com/watch?v=l6ZfFFomEhk)
 * [Иван Осипов — Kotlin DSL: теория и практика](https://www.youtube.com/watch?v=q_UM1EY2S5g)
+* [Александр Белов — Gradle DSL изнутри](https://www.youtube.com/watch?v=vRzOr61xH60)
 
 ### People management
+
 * [The Art of 1:1 Meetings — 6 Tips For Better Feedback](https://betterprogramming.pub/the-art-of-1-1-meetings-6-tips-for-better-feedback-8b80eb59b210)
 * [Teamlead Roadmap RUS](https://tlroadmap.io/)
 
+### Liquibase and Flyway
+
+* [Flyway - Squashing Migrations](https://medium.com/att-israel/flyway-squashing-migrations-2993d75dae96)
+
 ### PostgreSQL
+
 * [Migrating a production database without any downtime](https://teamplify.com/blog/zero-downtime-DB-migrations/)
 * [Optimizing Postgres for write heavy workloads ft. Checkpoint and WAL configs](https://www.youtube.com/watch?v=t8rAOgDdH1U)
 * [Tuning PostgreSQL for High Write Workloads](https://www.youtube.com/watch?v=xrMbzHdPLKM)
 * [Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak](https://www.youtube.com/watch?v=exqfB1WaqIw)
 
 #### RUS
+
 * [PostgreSQL by Vladimir Borodin](https://www.youtube.com/watch?v=ejLzS6rVpkk)
 * [The internal structure of PostgreSQL for practicing engineers](https://www.youtube.com/watch?v=jGOkSerUPw4)
 * [Indexes in PostgreSQL. How to understand what to create](https://www.youtube.com/watch?v=ju9F8OvnL4E)
@@ -97,6 +131,8 @@ Gradle multi-module project for experiments with Java
 * [Changing the schema of PostgreSQL tables without long locks](https://habr.com/ru/companies/yandex/articles/435880/)
 * [Дмитрий Фатов — Разгоняем вставку больших объемов данных Spring + PostgreSQL](https://www.youtube.com/watch?v=lpFDv50xn30)
 * [Сергей Синдеев, Группа «Рексофт» — Hibernate, OOM и ооочень длинные запросы](https://www.youtube.com/watch?v=KUmzw-gAhCY)
+* [Владимир Ситников — B-Tree индексы в базах данных на примере Spring Boot-приложений, PostgreSQL, JPA](https://www.youtube.com/watch?v=y-Wtyvme4gE)
+* [Михаил Жилин — Как PostgreSQL может сделать больно, когда не ожидаешь?](https://www.youtube.com/watch?v=pTWfjyeQ5Ks)
 
 #### Column migration from int to bigint
 * [Column migration from INT to BIGINT in PostgreSQL](https://zemanta.github.io/2021/08/25/column-migration-from-int-to-bigint-in-postgresql/) [eng]
@@ -112,7 +148,9 @@ Gradle multi-module project for experiments with Java
 * [Liveness and Readiness Probes](https://cloud.redhat.com/blog/liveness-and-readiness-probes)
 
 ### Load Testing
+
 #### Gatling
+
 * [Write Gatling Performance Tests with Java](https://rieckpil.de/write-gatling-performance-tests-with-java/)
 
 ##### RUS
