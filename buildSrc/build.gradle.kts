@@ -11,5 +11,5 @@ dependencies {
     implementation("net.ltgt.gradle:gradle-errorprone-plugin:3.1.0")
     implementation("info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0")
     implementation("org.gradle:test-retry-gradle-plugin:1.6.0")
-    implementation("io.freefair.gradle:lombok-plugin:8.12")
+    implementation("io.freefair.gradle:lombok-plugin:8.12.1")
 }
