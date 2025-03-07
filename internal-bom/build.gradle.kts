@@ -11,7 +11,7 @@ javaPlatform {
 
 dependencies {
     api(platform("org.junit:junit-bom:5.11.4"))
-    api(platform("org.testcontainers:testcontainers-bom:1.20.5"))
+    api(platform("org.testcontainers:testcontainers-bom:1.20.6"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.14.4"))
     api(platform("org.mockito:mockito-bom:5.16.0"))
     api(platform("org.assertj:assertj-bom:3.27.3"))
