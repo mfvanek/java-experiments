@@ -20,7 +20,7 @@ dependencies {
         api("com.google.code.findbugs:jsr305:3.0.2")
         api("org.postgresql:postgresql:42.7.5")
         api("com.zaxxer:HikariCP:6.2.1")
-        api("ch.qos.logback:logback-classic:1.5.17")
+        api("ch.qos.logback:logback-classic:1.5.18")
         api("org.slf4j:slf4j-api:2.0.17")
         api("com.h2database:h2:2.3.232")
         api("javax.annotation:javax.annotation-api:1.3.2")
