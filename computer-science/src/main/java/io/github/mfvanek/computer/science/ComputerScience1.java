@@ -4,21 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ComputerScience1 {
 
-  public static void main(String[] args) {
-    System.out.println(" == removeElement");
-    int[] a = {3,2,2,3};
-    System.out.println(removeElement(a, 3)); //2
-    System.out.println(Arrays.toString(a));
+    public static void main(String[] args) {
+        System.out.println(" == removeElement");
+        int[] a = {3, 2, 2, 3};
+        System.out.println(removeElement(a, 3)); //2
+        System.out.println(Arrays.toString(a));
 
-    int[] b = {4,4,4,4};
-    System.out.println(removeElement(b, 4)); //0
-    System.out.println(Arrays.toString(b));
+        int[] b = {4, 4, 4, 4};
+        System.out.println(removeElement(b, 4)); //0
+        System.out.println(Arrays.toString(b));
     /*
     System.out.println(" == isPalindrome");
     System.out.println(isPalindrome(1000021)); // false
@@ -48,92 +46,92 @@ public class ComputerScience1 {
     final int elementToFind = scanner.nextInt();
     searchAndPrintResult(sortedArray, elementToFind);
     */
-  }
+    }
 
-  public static int removeElement(int[] nums, int val) {
-    int j = nums.length - 1;
-    for (int i = 0; i <= j; ++i) {
-      if (nums[i] == val) {
-        while (nums[j] == val && j > i) {
-          --j;
+    public static int removeElement(int[] nums, int val) {
+        int j = nums.length - 1;
+        for (int i = 0; i <= j; ++i) {
+            if (nums[i] == val) {
+                while (nums[j] == val && j > i) {
+                    --j;
+                }
+                if (i == j) {
+                    return i;
+                }
+                nums[i] = nums[j];
+                --j;
+            }
         }
-        if (i==j) {
-          return i;
+        return j + 1;
+    }
+
+    public static boolean isPalindrome(int x) {
+        if (x < 0) {
+            return false;
         }
-        nums[i] = nums[j];
-        --j;
-      }
-    }
-    return j + 1;
-  }
 
-  public static boolean isPalindrome(int x) {
-    if (x < 0) {
-      return false;
+        List<Integer> digitsReversed = new ArrayList<>();
+        int res = x;
+        int digit = 0;
+        while (res > 9) {
+            digit = res % 10;
+            digitsReversed.add(digit);
+            res = res / 10;
+        }
+        digitsReversed.add(res);
+
+        List<Integer> digits = new ArrayList<>(digitsReversed);
+        Collections.reverse(digits);
+
+        final Iterator<Integer> first = digits.iterator();
+        final Iterator<Integer> second = digitsReversed.iterator();
+        while (first.hasNext()) {
+            if (first.next().intValue() != second.next().intValue()) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    List<Integer> digitsReversed = new LinkedList<>();
-    int res = x;
-    int digit = 0;
-    while (res > 9) {
-      digit = res % 10;
-      digitsReversed.add(digit);
-      res = res / 10;
+    private static int squareOfDigits(int n) {
+        int sum = 0;
+        int digit = 0;
+        while (n > 9) {
+            digit = n % 10;
+            n = n / 10;
+            sum = sum + digit * digit;
+        }
+        sum = sum + n * n;
+        return sum;
     }
-    digitsReversed.add(res);
 
-    List<Integer> digits = new ArrayList<>(digitsReversed);
-    Collections.reverse(digits);
+    private static int binarySearch(int[] array, int left, int right, int elem) {
+        // naive! stack overflow due to recursion. Needed iterative solution
+        if (left > right) {
+            return -1; // not found
+        }
+        final int mid = (left + right) / 2;
+        // final int mid = 1 + (right - 1)/2; Error!!!!
+        System.out.printf(" ----- left = %d, right = %d, mid = %d, array[mid] = %d", left, right, mid, array[mid]);
+        System.out.println();
+        if (array[mid] == elem) {
+            return mid; // found
+        }
+        if (array[mid] > elem) {
+            return binarySearch(array, left, mid - 1, elem);
+        }
+        return binarySearch(array, mid + 1, right, elem);
+    }
 
-    final Iterator<Integer> first = digits.iterator();
-    final Iterator<Integer> second = digitsReversed.iterator();
-    while (first.hasNext()) {
-      if (first.next().intValue() != second.next().intValue()) {
-        return false;
-      }
+    private static void searchAndPrintResult(int[] array, int elem) {
+        System.out.println();
+        final int result = binarySearch(array, 0, array.length - 1, elem);
+        if (result == -1) {
+            System.out.printf("Element %d not found in array%n", elem);
+            System.out.println();
+        } else {
+            System.out.printf("Element %d found at position %d: %d", elem, result, array[result]);
+            System.out.println();
+        }
     }
-    return true;
-  }
-
-  private static int squareOfDigits(int n) {
-    int sum = 0;
-    int digit= 0;
-    while(n > 9) {
-      digit = n % 10;
-      n = n / 10;
-      sum = sum + digit * digit;
-    }
-    sum = sum + n* n;
-    return sum;
-  }
-
-  private static int binarySearch(int[] array, int left, int right, int elem) {
-    // naive! stack overflow due to recursion. Needed iterative solution
-    if (left > right) {
-      return -1; // not found
-    }
-    final int mid = (left + right)/2;
-    // final int mid = 1 + (right - 1)/2; Error!!!!
-    System.out.printf(" ----- left = %d, right = %d, mid = %d, array[mid] = %d", left, right, mid, array[mid]);
-    System.out.println();
-    if (array[mid] == elem) {
-      return mid; // found
-    }
-    if (array[mid] > elem) {
-      return binarySearch(array, left, mid-1, elem);
-    }
-    return binarySearch(array, mid+1, right, elem);
-  }
-
-  private static void searchAndPrintResult(int[] array, int elem) {
-    System.out.println();
-    final int result = binarySearch(array, 0, array.length - 1, elem);
-    if (result == -1) {
-      System.out.printf("Element %d not found in array%n", elem);
-      System.out.println();
-    } else {
-      System.out.printf("Element %d found at position %d: %d", elem, result, array[result]);
-      System.out.println();
-    }
-  }
 }

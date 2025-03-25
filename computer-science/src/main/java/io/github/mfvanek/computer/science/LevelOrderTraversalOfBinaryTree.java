@@ -1,28 +1,28 @@
 package io.github.mfvanek.computer.science;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 import static io.github.mfvanek.computer.science.AverageOfLevelsInBinaryTree.buildTree;
 
 public class LevelOrderTraversalOfBinaryTree {
-  public static void main(String[] args) {
-    TreeNode r1 = buildTree(new Integer[]{3,9,20,null,null,15,7});
-    TreeNode r2 = buildTree(new Integer[]{3,9,20,null,null,15,7});
-    TreeNode r3 = buildTree(new Integer[]{3,9,20,null,null,15,8});
-    TreeNode r4 = buildTree(new Integer[]{3,9,20});
-    TreeNode r5 = buildTree(new Integer[]{3,20,9});
-    TreeNode r6 = buildTree(new Integer[]{1,2});
-    TreeNode r7 = buildTree(new Integer[]{1,null,2});
 
-    System.out.println(isSameTree(r6,r7)); // false
-    System.out.println(isSameTree(r4,r5)); // false
-    System.out.println(isSameTree(r1,r2)); // true
-    System.out.println(isSameTree(r1,r3)); // false
-    System.out.println(isSameTree(r4,r3)); // false
+    public static void main(String[] args) {
+        TreeNode r1 = buildTree(new Integer[]{3, 9, 20, null, null, 15, 7});
+        TreeNode r2 = buildTree(new Integer[]{3, 9, 20, null, null, 15, 7});
+        TreeNode r3 = buildTree(new Integer[]{3, 9, 20, null, null, 15, 8});
+        TreeNode r4 = buildTree(new Integer[]{3, 9, 20});
+        TreeNode r5 = buildTree(new Integer[]{3, 20, 9});
+        TreeNode r6 = buildTree(new Integer[]{1, 2});
+        TreeNode r7 = buildTree(new Integer[]{1, null, 2});
+
+        System.out.println(isSameTree(r6, r7)); // false
+        System.out.println(isSameTree(r4, r5)); // false
+        System.out.println(isSameTree(r1, r2)); // true
+        System.out.println(isSameTree(r1, r3)); // false
+        System.out.println(isSameTree(r4, r3)); // false
 
     /*
     TreeNode root = buildTree(new Integer[]{3,9,20,null,null,15,7});
@@ -31,42 +31,42 @@ public class LevelOrderTraversalOfBinaryTree {
     root = buildTree(new Integer[]{1});
     System.out.println(levelOrder(root));
      */
-  }
-
-  public static List<List<Integer>> levelOrder(TreeNode root) {
-    List<List<Integer>> res = new ArrayList<>();
-    if (root == null) {
-      return res;
     }
 
-    Queue<TreeNode> q = new LinkedList<>();
-    q.offer(root);
-    while (!q.isEmpty()) {
-      int nodesOnLevel = q.size();
-      List<Integer> levelRes = new ArrayList<>();
-      while (nodesOnLevel > 0) {
-        TreeNode cur = q.poll();
-        levelRes.add(cur.val);
-        if (cur.left != null) {
-          q.offer(cur.left);
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
         }
-        if (cur.right != null) {
-          q.offer(cur.right);
-        }
-        --nodesOnLevel;
-      }
-      res.add(levelRes);
-    }
-    return res;
-  }
 
-  public static boolean isSameTree(TreeNode p, TreeNode q) {
-    if (p == null && q == null) {
-      return true;
+        Queue<TreeNode> q = new ArrayDeque<>();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            int nodesOnLevel = q.size();
+            List<Integer> levelRes = new ArrayList<>();
+            while (nodesOnLevel > 0) {
+                TreeNode cur = q.poll();
+                levelRes.add(cur.val);
+                if (cur.left != null) {
+                    q.offer(cur.left);
+                }
+                if (cur.right != null) {
+                    q.offer(cur.right);
+                }
+                --nodesOnLevel;
+            }
+            res.add(levelRes);
+        }
+        return res;
     }
-    if (p == null || q == null) {
-      return false;
-    }
+
+    public static boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
 
     /* iterative
     Deque<TreeNode> q1 = new LinkedList<>();
@@ -103,16 +103,16 @@ public class LevelOrderTraversalOfBinaryTree {
     return q1.isEmpty() && q2.isEmpty();
      */
 
-    if (p.val == q.val) {
-      return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        if (p.val == q.val) {
+            return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+        }
+        return false;
     }
-    return false;
-  }
 
-  private static boolean isPointersEqual(TreeNode first, TreeNode second) {
-    if (first != null) {
-      return second != null;
+    private static boolean isPointersEqual(TreeNode first, TreeNode second) {
+        if (first != null) {
+            return second != null;
+        }
+        return second == null;
     }
-    return second == null;
-  }
 }
