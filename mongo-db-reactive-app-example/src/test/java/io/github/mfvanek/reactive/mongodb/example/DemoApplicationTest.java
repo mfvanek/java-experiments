@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Mono;
 
 import java.time.Clock;
@@ -31,9 +30,6 @@ class DemoApplicationTest extends BaseTest {
 
     @Autowired
     private ReactiveMongoTemplate mongoTemplate;
-
-    @Autowired
-    private WebTestClient webTestClient;
 
     @Test
     void contextLoads() {
