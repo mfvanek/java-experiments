@@ -30,11 +30,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.list;
 
 @SpringBootTest(
-        classes = IndexesMaintenanceTest.CustomDatasourceConfiguration.class,
-        webEnvironment = WebEnvironment.NONE,
-        properties = "spring.main.allow-bean-definition-overriding=true")
+    classes = DatabaseStructureStaticAnalysisTest.CustomDatasourceConfiguration.class,
+    webEnvironment = WebEnvironment.NONE,
+    properties = "spring.main.allow-bean-definition-overriding=true")
 @ActiveProfiles({"test", "test-single-node"})
-class IndexesMaintenanceTest {
+class DatabaseStructureStaticAnalysisTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -47,30 +47,29 @@ class IndexesMaintenanceTest {
     void checkPostgresVersion() {
         final String pgVersion = jdbcTemplate.queryForObject("select version();", String.class);
         assertThat(pgVersion)
-                .startsWith("PostgreSQL 16.4");
+            .startsWith("PostgreSQL 17.4");
     }
 
     @Test
     void databaseStructureCheckForPublicSchema() {
         assertThat(checks)
-                .hasSameSizeAs(Diagnostic.values());
+            .hasSameSizeAs(Diagnostic.values());
 
         checks.stream()
-                .filter(DatabaseCheckOnHost::isStatic)
-                .forEach(check -> {
-                    final ListAssert<? extends DbObject> checkAssert = assertThat(check.check())
-                            .as(check.getDiagnostic().name());
+            .filter(DatabaseCheckOnHost::isStatic)
+            .forEach(check -> {
+                final ListAssert<? extends DbObject> checkAssert = assertThat(check.check())
+                    .as(check.getDiagnostic().name());
 
-                    if (check.getDiagnostic() == Diagnostic.COLUMNS_WITHOUT_DESCRIPTION) {
-                        checkAssert.hasSize(4);
-                    } else if (check.getDiagnostic() == Diagnostic.TABLES_NOT_LINKED_TO_OTHERS) {
-                        checkAssert.hasSize(1)
-                                .asInstanceOf(list(Table.class))
-                                .containsExactly(Table.of("employees", 0L));
-                    } else {
-                        checkAssert.isEmpty();
-                    }
-                });
+                switch (check.getDiagnostic()) {
+                    case COLUMNS_WITH_FIXED_LENGTH_VARCHAR -> checkAssert.hasSize(2);
+                    case COLUMNS_WITHOUT_DESCRIPTION -> checkAssert.hasSize(4);
+                    case TABLES_NOT_LINKED_TO_OTHERS -> checkAssert.hasSize(1)
+                        .asInstanceOf(list(Table.class))
+                        .containsExactly(Table.of("employees"));
+                    default -> checkAssert.isEmpty();
+                }
+            });
     }
 
     @TestConfiguration
@@ -83,7 +82,7 @@ class IndexesMaintenanceTest {
             if (environment instanceof ConfigurableEnvironment configurableEnvironment) {
                 final MutablePropertySources mps = configurableEnvironment.getPropertySources();
                 mps.addFirst(new MapPropertySource("connectionString",
-                        Map.ofEntries(Map.entry("spring.datasource.url", pgUrl))));
+                    Map.ofEntries(Map.entry("spring.datasource.url", pgUrl))));
             }
             return getDataSource(pgUrl, clusterWrapper.getUsername(), clusterWrapper.getPassword());
         }

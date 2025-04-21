@@ -1,11 +1,7 @@
 package io.github.mfvanek.postgres.example;
 
 import com.zaxxer.hikari.HikariDataSource;
-
-import javax.annotation.Nonnull;
-
 import io.github.mfvanek.postgres.hikari.HikariDataSourceProvider;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.JdbcDatabaseContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -16,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collections;
+import javax.annotation.Nonnull;
 import javax.sql.DataSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,7 +22,7 @@ class SimpleTest {
     @Test
     void testSimple() throws SQLException {
         try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-                DockerImageName.parse("postgres").withTag("16.4"))
+                DockerImageName.parse("postgres").withTag("17.4"))
                 .withTmpFs(Collections.singletonMap("/var/lib/postgresql/data", "rw"))
                 .withDatabaseName("test_db")
                 .withUsername("test_user")
@@ -34,7 +31,7 @@ class SimpleTest {
             postgres.start();
 
             try (HikariDataSource dataSource = getDataSource(postgres);
-                    ResultSet resultSet = performQuery(dataSource, "SELECT 1")) {
+                 ResultSet resultSet = performQuery(dataSource, "SELECT 1")) {
                 int resultSetInt = resultSet.getInt(1);
                 assertThat(resultSetInt).isEqualTo(1);
             }
