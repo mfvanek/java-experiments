@@ -1,6 +1,6 @@
 plugins {
     id("java-experiments.java-conventions")
-	id("org.springframework.boot") version "3.3.10"
+	id("org.springframework.boot") version "3.4.5"
     id("com.google.osdetector") version "1.7.3"
 }
 
