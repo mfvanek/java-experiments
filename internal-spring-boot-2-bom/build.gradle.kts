@@ -14,7 +14,7 @@ dependencies {
     api(platform("org.springdoc:springdoc-openapi:1.8.0"))
     val spring2Version = "2.7.18"
     api(platform("org.springframework.boot:spring-boot-dependencies:$spring2Version"))
-    api(platform("org.springframework:spring-framework-bom:5.3.37"))
+    api(platform("org.springframework:spring-framework-bom:6.2.7"))
     api(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.9"))
     api(platform("org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.1.4"))
     api(platform("org.springframework.security:spring-security-bom:5.8.12"))
