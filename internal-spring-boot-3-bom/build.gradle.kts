@@ -11,10 +11,9 @@ javaPlatform {
 
 dependencies {
     api(platform(project(":internal-bom")))
-    val spring3Version = "3.3.10"
-    api(platform("org.springframework.boot:spring-boot-dependencies:$spring3Version"))
+    api(platform(libs.spring.boot.v3.dependencies))
 
     constraints {
-        api("org.springframework.boot:spring-boot-gradle-plugin:$spring3Version")
+        api("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.spring.boot.v3.get()}")
     }
 }
