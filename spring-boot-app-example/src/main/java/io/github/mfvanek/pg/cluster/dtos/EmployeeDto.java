@@ -1,7 +1,7 @@
 package io.github.mfvanek.pg.cluster.dtos;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-@RequiredArgsConstructor
 @SuperBuilder
 @Getter
 @ToString
@@ -23,6 +22,23 @@ public final class EmployeeDto {
     private final String lastName;
     private final int standardHoursPerDay;
     private final BigDecimal salaryPerHour;
+
+    @JsonCreator
+    public EmployeeDto(UUID id,
+                       LocalDateTime createdAt,
+                       LocalDateTime updatedAt,
+                       String firstName,
+                       String lastName,
+                       int standardHoursPerDay,
+                       BigDecimal salaryPerHour) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.standardHoursPerDay = standardHoursPerDay;
+        this.salaryPerHour = salaryPerHour;
+    }
 
     @Override
     public boolean equals(Object o) {
