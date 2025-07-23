@@ -4,7 +4,7 @@ Gradle multi-module project for experiments with Java
 [![Java CI](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml/badge.svg)](https://github.com/mfvanek/java-experiments/actions/workflows/gradle.yml)
 
 ## Modules
-* [Spring Boot 2 app with custom BOM](spring-boot-2-app-example%2FREADME.md)
+* [mongo-db-reactive-app-example](mongo-db-reactive-app-example)
 * [Spring Boot 3 app with PostgreSQL cluster](spring-boot-app-example%2FREADME.md)
 
 ## Useful Java links
