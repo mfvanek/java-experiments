@@ -11,8 +11,8 @@ dependencies {
 
 pitest {
     verbosity = "DEFAULT"
-    junit5PluginVersion = "1.2.2"
-    pitestVersion = "1.19.1"
+    junit5PluginVersion = "1.2.3"
+    pitestVersion = "1.20.0"
     threads = 4
     outputFormats = setOf("XML", "HTML")
     timestampedReports = false
