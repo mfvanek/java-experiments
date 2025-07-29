@@ -1,5 +1,5 @@
 [versions]
-spring-boot-v3 = "3.5.3"
+spring-boot-v3 = "3.5.4"
 
 [libraries]
 spring-boot-v3-dependencies = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot-v3" }
