@@ -25,6 +25,6 @@ dependencies {
         api("com.h2database:h2:2.3.232")
         api("javax.annotation:javax.annotation-api:1.3.2")
         api("org.threeten:threeten-extra:1.8.0")
-        api("io.netty:netty-all:4.2.4.Final")
+        api("io.netty:netty-all:4.2.6.Final")
     }
 }
