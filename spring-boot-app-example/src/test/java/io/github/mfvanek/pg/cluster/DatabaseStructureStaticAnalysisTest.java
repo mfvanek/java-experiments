@@ -2,6 +2,8 @@ package io.github.mfvanek.pg.cluster;
 
 import io.github.mfvanek.pg.core.checks.common.DatabaseCheckOnHost;
 import io.github.mfvanek.pg.core.checks.common.Diagnostic;
+import io.github.mfvanek.pg.model.column.Column;
+import io.github.mfvanek.pg.model.column.ColumnWithType;
 import io.github.mfvanek.pg.model.dbobject.DbObject;
 import io.github.mfvanek.pg.model.table.Table;
 import io.github.mfvanek.pg.testing.PostgreSqlClusterWrapper;
@@ -47,7 +49,7 @@ class DatabaseStructureStaticAnalysisTest {
     void checkPostgresVersion() {
         final String pgVersion = jdbcTemplate.queryForObject("select version();", String.class);
         assertThat(pgVersion)
-            .startsWith("PostgreSQL 17.4");
+            .startsWith("PostgreSQL 17.6");
     }
 
     @Test
@@ -59,14 +61,20 @@ class DatabaseStructureStaticAnalysisTest {
             .filter(DatabaseCheckOnHost::isStatic)
             .forEach(check -> {
                 final ListAssert<? extends DbObject> checkAssert = assertThat(check.check())
-                    .as(check.getDiagnostic().name());
+                    .as(check.getName());
 
-                switch (check.getDiagnostic()) {
-                    case COLUMNS_WITH_FIXED_LENGTH_VARCHAR -> checkAssert.hasSize(2);
-                    case COLUMNS_WITHOUT_DESCRIPTION -> checkAssert.hasSize(4);
-                    case TABLES_NOT_LINKED_TO_OTHERS -> checkAssert.hasSize(1)
+                switch (check.getName()) {
+                    case "COLUMNS_WITH_FIXED_LENGTH_VARCHAR" -> checkAssert.hasSize(2);
+                    case "COLUMNS_WITHOUT_DESCRIPTION" -> checkAssert.hasSize(4);
+                    case "TABLES_NOT_LINKED_TO_OTHERS", "TABLES_WHERE_PRIMARY_KEY_COLUMNS_NOT_FIRST" -> checkAssert.hasSize(1)
                         .asInstanceOf(list(Table.class))
                         .containsExactly(Table.of("employees"));
+                    case "COLUMNS_WITH_TIMESTAMP_OR_TIMETZ_TYPE" -> checkAssert.hasSize(2)
+                        .asInstanceOf(list(ColumnWithType.class))
+                        .containsExactly(
+                            ColumnWithType.ofTimestamp(Column.ofNotNull("employees", "created_at")),
+                            ColumnWithType.ofTimestamp(Column.ofNullable("employees", "updated_at"))
+                        );
                     default -> checkAssert.isEmpty();
                 }
             });
