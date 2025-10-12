@@ -10,7 +10,7 @@ javaPlatform {
 }
 
 dependencies {
-    api(platform("org.junit:junit-bom:5.13.4"))
+    api(platform("org.junit:junit-bom:6.0.0"))
     api(platform("org.testcontainers:testcontainers-bom:1.21.3"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.30.0"))
     api(platform("org.mockito:mockito-bom:5.20.0"))
@@ -20,7 +20,7 @@ dependencies {
         api("com.google.code.findbugs:jsr305:3.0.2")
         api("org.postgresql:postgresql:42.7.8")
         api("com.zaxxer:HikariCP:7.0.2")
-        api("ch.qos.logback:logback-classic:1.5.18")
+        api("ch.qos.logback:logback-classic:1.5.19")
         api("org.slf4j:slf4j-api:2.0.17")
         api("com.h2database:h2:2.3.232")
         api("javax.annotation:javax.annotation-api:1.3.2")
