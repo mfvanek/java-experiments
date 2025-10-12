@@ -22,7 +22,7 @@ dependencies {
         api("com.zaxxer:HikariCP:7.0.2")
         api("ch.qos.logback:logback-classic:1.5.19")
         api("org.slf4j:slf4j-api:2.0.17")
-        api("com.h2database:h2:2.3.232")
+        api("com.h2database:h2:2.4.240")
         api("javax.annotation:javax.annotation-api:1.3.2")
         api("org.threeten:threeten-extra:1.8.0")
         api("io.netty:netty-all:4.2.6.Final")
