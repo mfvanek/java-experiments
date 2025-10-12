@@ -2,7 +2,7 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 plugins {
     id("java")
-    id("com.github.ben-manes.versions") version "0.52.0"
+    id("com.github.ben-manes.versions") version "0.53.0"
     id("info.solidsoft.pitest")
     id("jacoco-report-aggregation")
 }
@@ -13,7 +13,7 @@ description = "Experiments with Java"
 
 allprojects {
     group = "io.github.mfvanek"
-    version = "0.3.0"
+    version = "0.3.1"
 
     repositories {
         mavenLocal()
@@ -48,7 +48,7 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
 
 tasks {
     wrapper {
-        gradleVersion = "8.14.3"
+        gradleVersion = "9.1.0"
     }
 
     jar {
