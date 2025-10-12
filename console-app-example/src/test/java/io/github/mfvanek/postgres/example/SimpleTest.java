@@ -22,7 +22,7 @@ class SimpleTest {
     @Test
     void testSimple() throws SQLException {
         try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-                DockerImageName.parse("postgres").withTag("17.4"))
+                DockerImageName.parse("postgres").withTag("17.6"))
                 .withTmpFs(Collections.singletonMap("/var/lib/postgresql/data", "rw"))
                 .withDatabaseName("test_db")
                 .withUsername("test_user")
