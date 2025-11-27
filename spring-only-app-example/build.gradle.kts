@@ -6,7 +6,7 @@ description = "Spring only application with embedded database"
 
 dependencies {
     implementation(platform(project(":internal-bom")))
-    implementation(platform("org.springframework:spring-framework-bom:7.0.0"))
+    implementation(platform("org.springframework:spring-framework-bom:7.0.1"))
 
     implementation("org.springframework:spring-context")
     implementation("org.springframework:spring-jdbc")
