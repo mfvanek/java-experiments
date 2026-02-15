@@ -17,18 +17,18 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
-    errorprone("com.google.errorprone:error_prone_core:2.42.0")
+    errorprone("com.google.errorprone:error_prone_core:2.47.0")
     errorprone("jp.skypencil.errorprone.slf4j:errorprone-slf4j:0.1.29")
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
 jacoco {
-    toolVersion = "0.8.13"
+    toolVersion = "0.8.14"
 }
 
 tasks {
