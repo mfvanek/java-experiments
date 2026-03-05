@@ -13,7 +13,7 @@ dependencies {
     api(platform("org.junit:junit-bom:6.0.3"))
     api(platform("org.testcontainers:testcontainers-bom:1.21.4"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.30.2"))
-    api(platform("org.mockito:mockito-bom:5.21.0"))
+    api(platform("org.mockito:mockito-bom:5.22.0"))
     api(platform("org.assertj:assertj-bom:3.27.7"))
 
     constraints {
