@@ -11,6 +11,6 @@ dependencies {
     implementation("org.slf4j:slf4j-api")
 
     testImplementation("ch.qos.logback:logback-classic")
-    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:testcontainers-postgresql")
     testImplementation("io.github.mfvanek:pg-index-health-testing")
 }
