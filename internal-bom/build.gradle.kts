@@ -10,7 +10,7 @@ javaPlatform {
 }
 
 dependencies {
-    api(platform("org.junit:junit-bom:6.0.3"))
+    api(platform("org.junit:junit-bom:6.1.0"))
     api(platform("org.testcontainers:testcontainers-bom:2.0.5"))
     api(platform("io.github.mfvanek:pg-index-health-bom:0.41.0"))
     api(platform("org.mockito:mockito-bom:5.23.0"))
