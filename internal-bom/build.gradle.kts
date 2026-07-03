@@ -18,7 +18,7 @@ dependencies {
 
     constraints {
         api("com.google.code.findbugs:jsr305:3.0.2")
-        api("org.postgresql:postgresql:42.7.11")
+        api("org.postgresql:postgresql:42.7.12")
         api("com.zaxxer:HikariCP:7.1.0")
         api("ch.qos.logback:logback-classic:1.5.37")
         api("org.slf4j:slf4j-api:2.0.18")
