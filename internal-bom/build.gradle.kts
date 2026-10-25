@@ -24,7 +24,7 @@ dependencies {
         api("org.slf4j:slf4j-api:2.0.20")
         api("com.h2database:h2:2.5.252")
         api("javax.annotation:javax.annotation-api:1.3.2")
-        api("org.threeten:threeten-extra:1.10.0")
+        api("org.threeten:threeten-extra:1.11.0")
         api("io.netty:netty-all:4.2.19.Final")
     }
 }
