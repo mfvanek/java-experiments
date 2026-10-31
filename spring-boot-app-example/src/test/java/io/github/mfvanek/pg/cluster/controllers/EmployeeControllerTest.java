@@ -71,9 +71,9 @@ class EmployeeControllerTest extends BaseTest {
 
         assertThat(result)
                 .isNotNull();
-        assertThat(result.getResponseHeaders())
+        assertThat(result.getResponseHeaders().headerNames())
                 .hasSizeGreaterThanOrEqualTo(2)
-                .containsKeys(HttpHeaders.CONTENT_TYPE, HttpHeaders.LOCATION);
+                .contains(HttpHeaders.CONTENT_TYPE, HttpHeaders.LOCATION);
 
         final List<String> location = result.getResponseHeaders().get(HttpHeaders.LOCATION);
         assertThat(location)

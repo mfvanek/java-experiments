@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.Clock;
 import java.time.LocalDateTime;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 @Component
 @NoArgsConstructor

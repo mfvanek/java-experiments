@@ -4,7 +4,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.postgresql.Driver;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public final class HikariDataSourceProvider {
 

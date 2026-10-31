@@ -1,13 +1,13 @@
 plugins {
     id("java-experiments.java-conventions")
-    alias(libs.plugins.spring.boot.v3)
+    alias(libs.plugins.spring.boot.v4)
     id("com.google.osdetector") version "1.7.3"
 }
 
 description = "Spring Boot reactive application with MongoDB"
 
 dependencies {
-    implementation(platform(project(":internal-spring-boot-3-bom")))
+    implementation(platform(project(":internal-spring-boot-4-bom")))
 
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb-reactive")

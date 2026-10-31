@@ -3,8 +3,8 @@ package com.mfvanek.experiments.spring.impl;
 import com.mfvanek.experiments.spring.interfaces.Duck;
 import org.springframework.context.MessageSource;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import java.util.Locale;
 
 public class EvilDuck implements Duck {

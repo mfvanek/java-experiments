@@ -16,7 +16,7 @@ import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneOffset;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 @SpringBootTest(
         classes = BaseTest.CustomClockConfiguration.class,
