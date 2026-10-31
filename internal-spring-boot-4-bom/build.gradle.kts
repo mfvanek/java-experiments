@@ -3,7 +3,7 @@ plugins {
     id("java-experiments.bom-publish")
 }
 
-description = "Spring Boot 3 cumulative BOM"
+description = "Spring Boot 4 cumulative BOM"
 
 javaPlatform {
     allowDependencies()
@@ -11,9 +11,9 @@ javaPlatform {
 
 dependencies {
     api(platform(project(":internal-bom")))
-    api(platform(libs.spring.boot.v3.dependencies))
+    api(platform(libs.spring.boot.v4.dependencies))
 
     constraints {
-        api("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.spring.boot.v3.get()}")
+        api("org.springframework.boot:spring-boot-gradle-plugin:${libs.versions.spring.boot.v4.get()}")
     }
 }

@@ -14,7 +14,7 @@ dependencies {
     implementation("com.h2database:h2")
     implementation("ch.qos.logback:logback-classic")
     implementation("org.slf4j:slf4j-api")
-    implementation("javax.annotation:javax.annotation-api")
+    implementation("jakarta.annotation:jakarta.annotation-api")
 
     testImplementation("org.mockito:mockito-core")
 }

@@ -9,6 +9,7 @@ dependencies {
     implementation("org.postgresql:postgresql")
     implementation("com.zaxxer:HikariCP")
     implementation("org.slf4j:slf4j-api")
+    implementation("jakarta.annotation:jakarta.annotation-api")
 
     testImplementation("ch.qos.logback:logback-classic")
     testImplementation("org.testcontainers:testcontainers-postgresql")

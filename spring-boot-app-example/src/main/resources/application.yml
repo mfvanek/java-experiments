@@ -4,8 +4,6 @@ spring:
             fail-on-unknown-properties: false
         mapper:
             default-view-inclusion: true
-        serialization:
-            write-dates-as-timestamps: false
     jpa:
         hibernate:
             ddl-auto: create

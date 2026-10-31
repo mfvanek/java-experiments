@@ -3,7 +3,7 @@ package io.github.mfvanek.reactive.mongodb.example.support;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.testcontainers.containers.MongoDBContainer;
+import org.testcontainers.mongodb.MongoDBContainer;
 import org.testcontainers.utility.DockerImageName;
 
 public class MongoInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
@@ -15,7 +15,7 @@ public class MongoInitializer implements ApplicationContextInitializer<Configura
         CONTAINER.start();
 
         TestPropertyValues.of(
-            "spring.data.mongodb.uri=" + CONTAINER.getReplicaSetUrl()
+            "spring.mongodb.uri=" + CONTAINER.getReplicaSetUrl()
         ).applyTo(context.getEnvironment());
     }
 }

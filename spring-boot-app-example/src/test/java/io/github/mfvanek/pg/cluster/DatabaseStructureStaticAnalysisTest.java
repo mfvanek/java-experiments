@@ -24,7 +24,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import javax.sql.DataSource;
 
 import static io.github.mfvanek.postgres.hikari.HikariDataSourceProvider.getDataSource;
