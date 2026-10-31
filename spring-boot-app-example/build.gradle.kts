@@ -19,7 +19,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-starter-webflux")
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("org.threeten:threeten-extra")
     testImplementation("io.github.mfvanek:pg-index-health-test-starter")
 

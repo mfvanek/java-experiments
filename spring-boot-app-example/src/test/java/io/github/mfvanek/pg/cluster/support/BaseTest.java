@@ -1,10 +1,12 @@
 package io.github.mfvanek.pg.cluster.support;
 
+import jakarta.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.web.server.LocalManagementPort;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,13 +18,13 @@ import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneOffset;
-import jakarta.annotation.Nonnull;
 
 @SpringBootTest(
-        classes = BaseTest.CustomClockConfiguration.class,
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-        properties = "pg.index.health.test.enabled=false")
+    classes = BaseTest.CustomClockConfiguration.class,
+    webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+    properties = "pg.index.health.test.enabled=false")
 @ActiveProfiles("test")
+@AutoConfigureWebTestClient
 public abstract class BaseTest {
 
     @Autowired
