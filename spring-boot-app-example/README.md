@@ -2,8 +2,9 @@
 Demo app with PostgreSQL cluster (Spring Boot)
 
 ## Requirements
-Java 17+  
-Spring Boot 3.0+
+Java 25+  
+Spring Boot 4.0+  
+Docker (the PostgreSQL cluster is started via Testcontainers, both in tests and on `bootRun`)
 
 ## Local development
 ### Build and run app

@@ -5,7 +5,7 @@ Gradle multi-module project for experiments with Java
 
 ## Modules
 * [mongo-db-reactive-app-example](mongo-db-reactive-app-example)
-* [Spring Boot 3 app with PostgreSQL cluster](spring-boot-app-example%2FREADME.md)
+* [Spring Boot 4 app with PostgreSQL cluster](spring-boot-app-example%2FREADME.md)
 
 ## Useful Java links
 
