@@ -4,8 +4,8 @@ import com.zaxxer.hikari.HikariDataSource;
 import io.github.mfvanek.postgres.hikari.HikariDataSourceProvider;
 import org.junit.jupiter.api.Test;
 import org.testcontainers.containers.JdbcDatabaseContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import java.sql.ResultSet;
@@ -21,13 +21,13 @@ class SimpleTest {
 
     @Test
     void testSimple() throws SQLException {
-        try (PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
-                DockerImageName.parse("postgres").withTag("17.6"))
-                .withTmpFs(Collections.singletonMap("/var/lib/postgresql/data", "rw"))
-                .withDatabaseName("test_db")
-                .withUsername("test_user")
-                .withPassword("test_password")
-                .waitingFor(Wait.defaultWaitStrategy())) {
+        try (PostgreSQLContainer postgres = new PostgreSQLContainer(
+            DockerImageName.parse("postgres").withTag("17.6"))
+            .withTmpFs(Collections.singletonMap("/var/lib/postgresql/data", "rw"))
+            .withDatabaseName("test_db")
+            .withUsername("test_user")
+            .withPassword("test_password")
+            .waitingFor(Wait.defaultWaitStrategy())) {
             postgres.start();
 
             try (HikariDataSource dataSource = getDataSource(postgres);
@@ -39,7 +39,7 @@ class SimpleTest {
     }
 
     private ResultSet performQuery(DataSource ds, String sql)
-            throws SQLException {
+        throws SQLException {
         Statement statement = ds.getConnection().createStatement();
         statement.execute(sql);
         ResultSet resultSet = statement.getResultSet();
@@ -49,6 +49,6 @@ class SimpleTest {
 
     private static HikariDataSource getDataSource(@Nonnull final JdbcDatabaseContainer<?> container) {
         return HikariDataSourceProvider.getDataSource(
-                container.getJdbcUrl(), container.getUsername(), container.getPassword());
+            container.getJdbcUrl(), container.getUsername(), container.getPassword());
     }
 }
